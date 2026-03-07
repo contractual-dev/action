@@ -1,0 +1,257 @@
+import * as core from '@actions/core';
+import * as github from '@actions/github';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import {
+  loadConfig,
+  getLinter,
+  getDiffer,
+  createChangeset as cliCreateChangeset,
+} from '@contractual/cli';
+import { postOrUpdateComment } from '../github/comments.js';
+import { commitChangeset } from '../github/commits.js';
+import { renderPRComment } from '../render/pr-comment.js';
+import type { ActionInputs, LintResult, DiffResult, ResolvedConfig } from '../types.js';
+
+/**
+ * Run the PR check workflow:
+ * 1. Load config
+ * 2. Run lint
+ * 3. Run breaking
+ * 4. Check for existing changeset
+ * 5. Auto-generate changeset if missing
+ * 6. Render and post PR comment
+ * 7. Set outputs
+ * 8. Fail if breaking + fail-on-breaking
+ */
+export async function runPRCheck(inputs: ActionInputs): Promise<void> {
+  const octokit = github.getOctokit(inputs.githubToken);
+  const context = github.context;
+  const prNumber = context.payload.pull_request?.number;
+
+  if (!prNumber) {
+    throw new Error('This action must run on pull_request events');
+  }
+
+  core.info('Loading contractual config...');
+  const config = loadConfig();
+
+  // Run lint
+  core.info('Running lint...');
+  const lintResults = await runLint(config);
+  const hasLintErrors = lintResults.some((r) => r.errors.length > 0);
+  core.info(`Lint complete: ${lintResults.length} contract(s) checked`);
+
+  // Run breaking
+  core.info('Running breaking change detection...');
+  const diffResults = await runBreaking(config);
+  const hasBreaking = diffResults.some((r) => r.summary.breaking > 0);
+  const hasChanges = diffResults.some((r) => r.changes.length > 0);
+  core.info(`Breaking detection complete: ${hasBreaking ? 'breaking changes found' : 'no breaking changes'}`);
+
+  // Check for existing changeset in PR
+  core.info('Checking for existing changeset...');
+  const prFiles = await getPRFiles(octokit, context, prNumber);
+  const hasChangeset = prFiles.some(
+    (f) =>
+      f.filename.startsWith('.contractual/changesets/') &&
+      f.filename.endsWith('.md')
+  );
+
+  // Auto-generate changeset if missing
+  let changesetCreated = false;
+  if (hasChanges && !hasChangeset && inputs.autoChangeset) {
+    core.info('Auto-generating changeset...');
+    try {
+      const changesetFile = generateChangeset(diffResults);
+      if (changesetFile) {
+        await commitChangeset(changesetFile);
+        changesetCreated = true;
+        core.info(`Changeset committed: ${changesetFile.filename}`);
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error';
+      core.warning(`Failed to auto-generate changeset: ${message}`);
+    }
+  }
+
+  // Render and post PR comment
+  core.info('Posting PR comment...');
+  const commentBody = renderPRComment({
+    lintResults,
+    diffResults,
+    hasChangeset: hasChangeset || changesetCreated,
+    changesetCreated,
+    aiExplanation: null, // LLM integration deferred
+  });
+
+  try {
+    await postOrUpdateComment(octokit, context, prNumber, commentBody);
+    core.info('PR comment posted');
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    core.warning(`Failed to post PR comment: ${message}`);
+  }
+
+  // Set outputs
+  core.setOutput('has-breaking', hasBreaking.toString());
+  core.setOutput('has-changes', hasChanges.toString());
+  core.setOutput('changeset-created', changesetCreated.toString());
+
+  // Fail if configured
+  if (hasLintErrors) {
+    core.setFailed('Lint errors found. Review the PR comment for details.');
+    return;
+  }
+
+  if (hasBreaking && inputs.failOnBreaking) {
+    core.setFailed('Breaking changes detected. Review the PR comment for details.');
+  }
+}
+
+/**
+ * Run lint for all contracts in config
+ */
+async function runLint(config: ResolvedConfig): Promise<LintResult[]> {
+  const results: LintResult[] = [];
+
+  for (const contract of config.contracts) {
+    // Skip if linting disabled
+    if (contract.lint === false) {
+      core.debug(`Skipping lint for ${contract.name} (disabled)`);
+      continue;
+    }
+
+    try {
+      const linter = getLinter(contract.type, contract.lint);
+
+      if (!linter) {
+        core.debug(`No linter available for ${contract.name} (type: ${contract.type})`);
+        continue;
+      }
+
+      const result = await linter(contract.absolutePath);
+      results.push({
+        ...result,
+        contract: contract.name,
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Linter failed';
+      results.push({
+        contract: contract.name,
+        errors: [{ path: '', message, severity: 'error' }],
+        warnings: [],
+      });
+    }
+  }
+
+  return results;
+}
+
+/**
+ * Run breaking change detection for all contracts
+ */
+async function runBreaking(config: ResolvedConfig): Promise<DiffResult[]> {
+  const results: DiffResult[] = [];
+  const contractualDir = findContractualDir(config.configDir);
+
+  if (!contractualDir) {
+    core.warning('No .contractual directory found - skipping breaking change detection');
+    return results;
+  }
+
+  for (const contract of config.contracts) {
+    // Skip if breaking detection disabled
+    if (contract.breaking === false) {
+      core.debug(`Skipping breaking detection for ${contract.name} (disabled)`);
+      continue;
+    }
+
+    // Find snapshot for comparison
+    const snapshotPath = getSnapshotPath(contract.name, contractualDir);
+    if (!snapshotPath) {
+      core.debug(`No snapshot for ${contract.name} - first version`);
+      continue;
+    }
+
+    try {
+      const differ = getDiffer(contract.type, contract.breaking);
+
+      if (!differ) {
+        core.debug(`No differ available for ${contract.name} (type: ${contract.type})`);
+        continue;
+      }
+
+      const result = await differ(snapshotPath, contract.absolutePath);
+      results.push({
+        ...result,
+        contract: contract.name,
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Differ failed';
+      core.warning(`Failed to check ${contract.name}: ${message}`);
+    }
+  }
+
+  return results;
+}
+
+/**
+ * Find .contractual directory
+ */
+function findContractualDir(configDir: string): string | null {
+  const dir = join(configDir, '.contractual');
+  return existsSync(dir) ? dir : null;
+}
+
+/**
+ * Get snapshot path for a contract
+ */
+function getSnapshotPath(contractName: string, contractualDir: string): string | null {
+  const snapshotDir = join(contractualDir, 'snapshots', contractName);
+  if (!existsSync(snapshotDir)) {
+    return null;
+  }
+  // Find the spec file in snapshot dir
+  // For now, look for common extensions
+  const extensions = ['.yaml', '.yml', '.json'];
+  for (const ext of extensions) {
+    const path = join(snapshotDir, `spec${ext}`);
+    if (existsSync(path)) {
+      return path;
+    }
+  }
+  return null;
+}
+
+/**
+ * Generate changeset from diff results
+ */
+function generateChangeset(
+  diffResults: DiffResult[]
+): { filename: string; content: string } | null {
+  // Filter to only contracts with changes
+  const resultsWithChanges = diffResults.filter((r) => r.changes.length > 0);
+
+  if (resultsWithChanges.length === 0) {
+    return null;
+  }
+
+  return cliCreateChangeset(resultsWithChanges);
+}
+
+/**
+ * Get list of files changed in PR
+ */
+async function getPRFiles(
+  octokit: ReturnType<typeof github.getOctokit>,
+  context: typeof github.context,
+  prNumber: number
+): Promise<Array<{ filename: string }>> {
+  const { data: files } = await octokit.rest.pulls.listFiles({
+    owner: context.repo.owner,
+    repo: context.repo.repo,
+    pull_number: prNumber,
+  });
+  return files;
+}

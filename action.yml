@@ -1,0 +1,48 @@
+name: 'Contractual'
+description: 'Schema contract lifecycle management — lint, diff, version, release'
+author: 'Contractual'
+branding:
+  icon: 'file-text'
+  color: 'blue'
+
+inputs:
+  mode:
+    description: 'Action mode: pr-check or release'
+    required: true
+  anthropic-api-key:
+    description: 'Anthropic API key for AI-powered change explanations (optional)'
+    required: false
+  github-token:
+    description: 'GitHub token for PR comments and commits'
+    required: false
+    default: ${{ github.token }}
+  fail-on-breaking:
+    description: 'Fail the check if breaking changes detected'
+    required: false
+    default: 'true'
+  auto-changeset:
+    description: 'Auto-generate and commit changeset if missing'
+    required: false
+    default: 'true'
+  version-pr-title:
+    description: 'Title for the Version Contracts PR'
+    required: false
+    default: 'Version Contracts'
+  version-pr-branch:
+    description: 'Branch name for Version Contracts PR'
+    required: false
+    default: 'contractual/version-contracts'
+
+outputs:
+  has-breaking:
+    description: 'Whether breaking changes were detected'
+  has-changes:
+    description: 'Whether any spec changes were detected'
+  changeset-created:
+    description: 'Whether a changeset was auto-created'
+  version-pr-url:
+    description: 'URL of the Version Contracts PR (release mode)'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
