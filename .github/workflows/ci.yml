@@ -21,11 +21,6 @@ jobs:
           node-version: 20
           cache: pnpm
 
-      # Clone the CLI repo for linked dependencies
-      - name: Clone contractual CLI
-        run: |
-          git clone --depth 1 https://github.com/contractual-dev/contractual.git ../contractual
-
       - name: Install dependencies
         run: pnpm install
 
