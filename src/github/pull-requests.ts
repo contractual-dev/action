@@ -53,8 +53,16 @@ export async function createOrUpdateVersionPR(
   // Ensure branch exists
   await ensureBranchExists(octokit, owner, repo, options.branch, baseBranch);
 
-  // Checkout the version branch
+  // Checkout the version branch (force to handle any uncommitted changes)
   git(`fetch origin ${options.branch}`);
+
+  try {
+    // Try to reset any uncommitted changes before checkout
+    git('reset --hard HEAD');
+  } catch {
+    core.debug('No changes to reset');
+  }
+
   git(`checkout ${options.branch}`);
 
   // Pull latest changes to avoid conflicts

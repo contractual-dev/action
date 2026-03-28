@@ -80,6 +80,10 @@ export function isPrerelease(version: string): boolean {
 export async function createGitTag(tagName: string, message: string): Promise<void> {
   core.info(`Creating git tag: ${tagName}`);
 
+  // Configure git identity for tag creation
+  await exec.exec('git', ['config', 'user.name', 'contractual[bot]']);
+  await exec.exec('git', ['config', 'user.email', 'contractual[bot]@users.noreply.github.com']);
+
   // Create annotated tag
   await exec.exec('git', ['tag', '-a', tagName, '-m', message]);
 
