@@ -16,10 +16,13 @@ export default defineConfig({
   treeshake: true,
   // Output as .js not .cjs for GitHub Actions compatibility
   outExtension: () => ({ js: '.js' }),
-  // Add shims for ESM/CJS interop
-  shims: true,
-  // Use esbuild's CJS output directly without tsup's interop wrapper
+  // Proper CJS interop - don't add the problematic default export wrapper
+  cjsInterop: true,
+  // esbuild settings
   esbuildOptions(options) {
-    options.mainFields = ['module', 'main'];
+    // Prefer main field first for CJS compatibility
+    options.mainFields = ['main', 'module'];
+    // Don't inject the default export wrapper that causes issues
+    options.keepNames = true;
   },
 });
