@@ -53,23 +53,18 @@ export async function createOrUpdateVersionPR(
   // Ensure branch exists
   await ensureBranchExists(octokit, owner, repo, options.branch, baseBranch);
 
-  // Checkout the version branch (force to handle any uncommitted changes)
+  // Fetch the version branch
   git(`fetch origin ${options.branch}`);
 
-  try {
-    // Try to reset any uncommitted changes before checkout
-    git('reset --hard HEAD');
-  } catch {
-    core.debug('No changes to reset');
-  }
+  // Use checkout -B to create or reset the branch, keeping uncommitted changes
+  // This handles the case where the branch exists with stale state
+  git(`checkout -B ${options.branch}`);
 
-  git(`checkout ${options.branch}`);
-
-  // Pull latest changes to avoid conflicts
+  // Merge any remote changes to stay in sync
   try {
-    git(`pull origin ${options.branch} --rebase`);
+    git(`merge origin/${options.branch} --no-edit`);
   } catch {
-    core.debug('No remote changes to pull');
+    core.debug('No remote changes to merge or merge conflict (will be resolved by push)');
   }
 
   // Configure git identity
