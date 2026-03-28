@@ -7,6 +7,8 @@ import type {
   LintResult,
   LintIssue,
   DiffResult,
+  DiffOptions,
+  DiffContractsResult,
   Change,
   ChangeSeverity,
   DiffSummary,
@@ -23,6 +25,8 @@ export type {
   LintResult,
   LintIssue,
   DiffResult,
+  DiffOptions,
+  DiffContractsResult,
   Change,
   ChangeSeverity,
   DiffSummary,
@@ -83,6 +87,11 @@ export interface ChangesetToCommit {
 }
 
 /**
+ * Tag prefix format for releases
+ */
+export type TagPrefix = 'contract' | 'v' | 'none';
+
+/**
  * Action inputs from action.yml
  */
 export interface ActionInputs {
@@ -93,4 +102,8 @@ export interface ActionInputs {
   autoChangeset: boolean;
   versionPrTitle: string;
   versionPrBranch: string;
+  preReleaseTag?: string;
+  createReleases: boolean;
+  tagPrefix: TagPrefix;
+  attachSpecs: boolean;
 }

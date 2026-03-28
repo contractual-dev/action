@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import { runPRCheck } from './modes/pr-check.js';
 import { runRelease } from './modes/release.js';
-import type { ActionInputs } from './types.js';
+import type { ActionInputs, TagPrefix } from './types.js';
 
 /**
  * Parse and validate action inputs
@@ -18,6 +18,12 @@ function getInputs(): ActionInputs {
     throw new Error('github-token is required');
   }
 
+  // Parse tag-prefix with validation
+  const tagPrefixInput = core.getInput('tag-prefix') || 'contract';
+  if (!['contract', 'v', 'none'].includes(tagPrefixInput)) {
+    throw new Error(`Invalid tag-prefix: "${tagPrefixInput}". Must be 'contract', 'v', or 'none'.`);
+  }
+
   return {
     mode,
     githubToken,
@@ -26,6 +32,10 @@ function getInputs(): ActionInputs {
     autoChangeset: core.getInput('auto-changeset') === 'true',
     versionPrTitle: core.getInput('version-pr-title') || 'Version Contracts',
     versionPrBranch: core.getInput('version-pr-branch') || 'contractual/version-contracts',
+    preReleaseTag: core.getInput('pre-release-tag') || undefined,
+    createReleases: core.getInput('create-releases') !== 'false',
+    tagPrefix: tagPrefixInput as TagPrefix,
+    attachSpecs: core.getInput('attach-specs') !== 'false',
   };
 }
 

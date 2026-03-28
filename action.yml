@@ -32,6 +32,21 @@ inputs:
     description: 'Branch name for Version Contracts PR'
     required: false
     default: 'contractual/version-contracts'
+  pre-release-tag:
+    description: 'Pre-release tag (e.g., "alpha", "beta", "rc") - creates versions like 2.0.0-beta.0'
+    required: false
+  create-releases:
+    description: 'Create GitHub Releases when Version PR merges'
+    required: false
+    default: 'true'
+  tag-prefix:
+    description: 'Tag format: "contract" for orders-api@1.0.0, "v" for v1.0.0, "none" for 1.0.0'
+    required: false
+    default: 'contract'
+  attach-specs:
+    description: 'Attach spec files to GitHub Releases as assets'
+    required: false
+    default: 'true'
 
 outputs:
   has-breaking:
@@ -42,6 +57,12 @@ outputs:
     description: 'Whether a changeset was auto-created'
   version-pr-url:
     description: 'URL of the Version Contracts PR (release mode)'
+  bumped-versions:
+    description: 'JSON of bumped versions (release mode), e.g. {"orders-api": "2.0.0", "order-schema": "1.1.0"}'
+  release-urls:
+    description: 'JSON array of created GitHub Release URLs (post-merge)'
+  created-tags:
+    description: 'JSON array of created git tags (post-merge)'
 
 runs:
   using: 'node20'

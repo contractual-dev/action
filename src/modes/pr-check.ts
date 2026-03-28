@@ -1,11 +1,9 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
 import {
   loadConfig,
   getLinter,
-  getDiffer,
+  diffContracts,
   createChangeset as cliCreateChangeset,
 } from '@contractual/cli';
 import { postOrUpdateComment } from '../github/comments.js';
@@ -42,9 +40,9 @@ export async function runPRCheck(inputs: ActionInputs): Promise<void> {
   const hasLintErrors = lintResults.some((r) => r.errors.length > 0);
   core.info(`Lint complete: ${lintResults.length} contract(s) checked`);
 
-  // Run breaking
-  core.info('Running breaking change detection...');
-  const diffResults = await runBreaking(config);
+  // Run diff (includes breaking, non-breaking, and patch changes)
+  core.info('Running diff/breaking change detection...');
+  const diffResults = await runDiff(config);
   const hasBreaking = diffResults.some((r) => r.summary.breaking > 0);
   const hasChanges = diffResults.some((r) => r.changes.length > 0);
   core.info(`Breaking detection complete: ${hasBreaking ? 'breaking changes found' : 'no breaking changes'}`);
@@ -149,79 +147,22 @@ async function runLint(config: ResolvedConfig): Promise<LintResult[]> {
 }
 
 /**
- * Run breaking change detection for all contracts
+ * Run diff for all contracts - returns ALL classified changes.
+ * This is the primitive used by both `diff` and `breaking` CLI commands.
+ * The action decides separately whether to fail based on inputs.failOnBreaking.
  */
-async function runBreaking(config: ResolvedConfig): Promise<DiffResult[]> {
-  const results: DiffResult[] = [];
-  const contractualDir = findContractualDir(config.configDir);
-
-  if (!contractualDir) {
-    core.warning('No .contractual directory found - skipping breaking change detection');
+async function runDiff(config: ResolvedConfig): Promise<DiffResult[]> {
+  try {
+    const { results } = await diffContracts(config, { includeEmpty: false });
     return results;
-  }
-
-  for (const contract of config.contracts) {
-    // Skip if breaking detection disabled
-    if (contract.breaking === false) {
-      core.debug(`Skipping breaking detection for ${contract.name} (disabled)`);
-      continue;
+  } catch (error) {
+    // Handle case where no .contractual directory exists
+    if (error instanceof Error && error.message.includes('No .contractual directory')) {
+      core.warning('No .contractual directory found - skipping diff');
+      return [];
     }
-
-    // Find snapshot for comparison
-    const snapshotPath = getSnapshotPath(contract.name, contractualDir);
-    if (!snapshotPath) {
-      core.debug(`No snapshot for ${contract.name} - first version`);
-      continue;
-    }
-
-    try {
-      const differ = getDiffer(contract.type, contract.breaking);
-
-      if (!differ) {
-        core.debug(`No differ available for ${contract.name} (type: ${contract.type})`);
-        continue;
-      }
-
-      const result = await differ(snapshotPath, contract.absolutePath);
-      results.push({
-        ...result,
-        contract: contract.name,
-      });
-    } catch (error) {
-      const message = error instanceof Error ? error.message : 'Differ failed';
-      core.warning(`Failed to check ${contract.name}: ${message}`);
-    }
+    throw error;
   }
-
-  return results;
-}
-
-/**
- * Find .contractual directory
- */
-function findContractualDir(configDir: string): string | null {
-  const dir = join(configDir, '.contractual');
-  return existsSync(dir) ? dir : null;
-}
-
-/**
- * Get snapshot path for a contract
- */
-function getSnapshotPath(contractName: string, contractualDir: string): string | null {
-  const snapshotDir = join(contractualDir, 'snapshots', contractName);
-  if (!existsSync(snapshotDir)) {
-    return null;
-  }
-  // Find the spec file in snapshot dir
-  // For now, look for common extensions
-  const extensions = ['.yaml', '.yml', '.json'];
-  for (const ext of extensions) {
-    const path = join(snapshotDir, `spec${ext}`);
-    if (existsSync(path)) {
-      return path;
-    }
-  }
-  return null;
 }
 
 /**

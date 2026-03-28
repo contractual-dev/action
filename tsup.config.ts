@@ -2,7 +2,7 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig({
   entry: { index: 'src/main.ts' },
-  format: ['cjs'],
+  format: ['esm'],
   outDir: 'dist',
   target: 'node20',
   // Bundle everything into a single file (GitHub Actions requirement)
@@ -14,6 +14,4 @@ export default defineConfig({
   sourcemap: true,
   // Tree shake unused code
   treeshake: true,
-  // Output as .js not .cjs for GitHub Actions compatibility
-  outExtension: () => ({ js: '.js' }),
 });

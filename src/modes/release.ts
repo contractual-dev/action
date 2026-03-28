@@ -1,13 +1,34 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
-import { join } from 'node:path';
-import { loadConfig, readChangesets } from '@contractual/cli';
+import { existsSync, readFileSync, unlinkSync } from 'node:fs';
+import { join, extname } from 'node:path';
+import {
+  loadConfig,
+  readChangesets,
+  VersionManager,
+  aggregateBumps,
+  extractContractChanges,
+  appendChangelog,
+  findContractualDir,
+  incrementVersionWithPreRelease,
+  CHANGESETS_DIR,
+} from '@contractual/cli';
+import type { BumpResult } from '@contractual/cli';
 import { createOrUpdateVersionPR } from '../github/pull-requests.js';
+import {
+  createGitTag,
+  createRelease,
+  uploadReleaseAsset,
+  formatTag,
+  isPrerelease,
+  tagExists,
+} from '../github/releases.js';
 import { renderVersionPRBody } from '../render/version-pr.js';
+import { renderReleaseNotes } from '../render/release-notes.js';
 import type { ActionInputs, ChangesetFile, ResolvedConfig } from '../types.js';
 
-/** Path to changesets directory */
-const CHANGESETS_DIR = '.contractual/changesets';
+/** Full path to changesets directory */
+const CHANGESETS_PATH = '.contractual/changesets';
 
 /**
  * Run the release workflow:
@@ -22,17 +43,17 @@ export async function runRelease(inputs: ActionInputs): Promise<void> {
   const config = loadConfig(); // sync function
 
   core.info('Reading changesets...');
-  const changesets = await readChangesets(CHANGESETS_DIR); // async - must await!
+  const changesets = await readChangesets(CHANGESETS_PATH); // async - must await!
 
   if (changesets.length > 0) {
     core.info(`Found ${changesets.length} changeset(s). Running version workflow...`);
     await handleVersioning(octokit, context, config, changesets, inputs);
   } else {
     core.info('No changesets found. Checking if this is a version merge...');
-    const isVersionMerge = await checkIfVersionMerge(octokit, context);
-    if (isVersionMerge) {
-      core.info('Version merge detected. Running post-release hooks...');
-      await handlePostRelease(config);
+    const versionMergeInfo = await checkIfVersionMerge(octokit, context);
+    if (versionMergeInfo) {
+      core.info('Version merge detected. Running post-release...');
+      await handlePostRelease(octokit, context, config, versionMergeInfo, inputs);
     } else {
       core.info('Not a version merge. Nothing to do.');
     }
@@ -49,28 +70,93 @@ async function handleVersioning(
   changesets: ChangesetFile[],
   inputs: ActionInputs
 ): Promise<void> {
-  // TODO: Run contractual version programmatically
-  // For now, we'll create a placeholder version result
-  core.warning('Version command not yet fully implemented - creating placeholder PR');
+  const contractualDir = findContractualDir(config.configDir);
+  if (!contractualDir) {
+    throw new Error('No .contractual directory found');
+  }
 
-  // Extract consumed changeset filenames
-  const consumedChangesets = changesets.map((cs) => cs.filename);
+  // Aggregate bumps (highest wins per contract)
+  const aggregatedBumps = aggregateBumps(changesets);
 
-  // Create placeholder bumps from changeset data
-  // In the real implementation, this would come from running the version command
-  const bumps = changesets.flatMap((cs) =>
-    Object.entries(cs.bumps).map(([contract, bumpType]) => ({
-      contract,
-      oldVersion: '0.0.0', // Placeholder
-      newVersion: bumpType === 'major' ? '1.0.0' : bumpType === 'minor' ? '0.1.0' : '0.0.1',
+  // Initialize version manager
+  const versionManager = new VersionManager(contractualDir);
+
+  // Process each contract bump
+  const bumpResults: BumpResult[] = [];
+  const consumedChangesets: string[] = [];
+
+  for (const [contractName, bumpType] of Object.entries(aggregatedBumps)) {
+    const contract = config.contracts.find((c) => c.name === contractName);
+    if (!contract) {
+      core.warning(`Contract "${contractName}" not found in config, skipping.`);
+      continue;
+    }
+
+    let oldVersion: string;
+    let newVersion: string;
+
+    if (inputs.preReleaseTag) {
+      // Pre-release mode: calculate version with tag and use setVersion
+      oldVersion = versionManager.getVersion(contractName) ?? '0.0.0';
+      newVersion = incrementVersionWithPreRelease(oldVersion, bumpType, inputs.preReleaseTag);
+      versionManager.setVersion(contractName, newVersion, contract.absolutePath);
+    } else {
+      // Normal mode: use bump() which handles increment and snapshot
+      const result = versionManager.bump(contractName, bumpType, contract.absolutePath);
+      oldVersion = result.oldVersion;
+      newVersion = result.newVersion;
+    }
+
+    // Extract changes text from changesets
+    const changes = extractContractChanges(changesets, contractName);
+
+    bumpResults.push({
+      contract: contractName,
+      oldVersion,
+      newVersion,
       bumpType,
-      changes: cs.body,
-    }))
-  );
+      changes,
+    });
+
+    const tagSuffix = inputs.preReleaseTag ? ` [${inputs.preReleaseTag}]` : '';
+    core.info(`Bumped ${contractName}: ${oldVersion} → ${newVersion} (${bumpType})${tagSuffix}`);
+  }
+
+  // Append to CHANGELOG.md
+  const changelogPath = join(config.configDir, 'CHANGELOG.md');
+  try {
+    appendChangelog(changelogPath, bumpResults);
+    core.info('Updated CHANGELOG.md');
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    core.warning(`Failed to update changelog: ${message}`);
+  }
+
+  // Delete consumed changeset files
+  const changesetsDir = join(contractualDir, CHANGESETS_DIR);
+  for (const changeset of changesets) {
+    const changesetPath = join(changesetsDir, changeset.filename);
+    try {
+      if (existsSync(changesetPath)) {
+        unlinkSync(changesetPath);
+        consumedChangesets.push(changeset.filename);
+        core.debug(`Deleted changeset: ${changeset.filename}`);
+      }
+    } catch {
+      core.debug(`Failed to delete changeset: ${changeset.filename}`);
+    }
+  }
+
+  // Set bumped-versions output
+  const bumpedVersions: Record<string, string> = {};
+  for (const bump of bumpResults) {
+    bumpedVersions[bump.contract] = bump.newVersion;
+  }
+  core.setOutput('bumped-versions', JSON.stringify(bumpedVersions));
 
   // Render PR body
   const prBody = renderVersionPRBody({
-    bumps,
+    bumps: bumpResults,
     consumedChangesets,
   });
 
@@ -90,23 +176,135 @@ async function handleVersioning(
 }
 
 /**
- * Handle post-release when Version PR was merged
+ * Information about a version merge commit
  */
-async function handlePostRelease(config: ResolvedConfig): Promise<void> {
-  // Phase 2: Run generate + publish commands
-  core.info('Post-release hooks not yet implemented (Phase 2)');
-  // Future:
-  // await runGenerateCommand(config);
-  // await runPublishCommand(config);
+interface VersionMergeInfo {
+  /** Contracts that were bumped with their old and new versions */
+  bumps: Array<{
+    contract: string;
+    oldVersion: string;
+    newVersion: string;
+  }>;
+}
+
+/**
+ * Handle post-release when Version PR was merged
+ * Creates git tags and GitHub Releases for each bumped contract
+ */
+async function handlePostRelease(
+  octokit: ReturnType<typeof github.getOctokit>,
+  context: typeof github.context,
+  config: ResolvedConfig,
+  mergeInfo: VersionMergeInfo,
+  inputs: ActionInputs
+): Promise<void> {
+  const contractualDir = findContractualDir(config.configDir);
+  if (!contractualDir) {
+    throw new Error('No .contractual directory found');
+  }
+
+  const versionManager = new VersionManager(contractualDir);
+  const createdTags: string[] = [];
+  const releaseUrls: string[] = [];
+
+  for (const bump of mergeInfo.bumps) {
+    const { contract: contractName, oldVersion, newVersion } = bump;
+
+    // Find contract config
+    const contract = config.contracts.find((c) => c.name === contractName);
+
+    // Format tag name
+    const tagName = formatTag(contractName, newVersion, inputs.tagPrefix);
+
+    // Check if tag already exists (idempotency)
+    if (await tagExists(octokit, context, tagName)) {
+      core.info(`Tag ${tagName} already exists, skipping...`);
+      continue;
+    }
+
+    // Create git tag
+    try {
+      await createGitTag(tagName, `Release ${contractName} ${newVersion}`);
+      createdTags.push(tagName);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error';
+      core.warning(`Failed to create tag ${tagName}: ${message}`);
+      continue;
+    }
+
+    // Create GitHub Release
+    if (inputs.createReleases) {
+      try {
+        const releaseNotes = renderReleaseNotes({
+          contractName,
+          oldVersion,
+          newVersion,
+          changes: '', // TODO: Extract from merged PR body
+          bumpType: detectBumpType(oldVersion, newVersion),
+        });
+
+        const release = await createRelease(octokit, context, {
+          tagName,
+          releaseName: `${contractName} v${newVersion}`,
+          body: releaseNotes,
+          prerelease: isPrerelease(newVersion),
+        });
+
+        releaseUrls.push(release.url);
+
+        // Attach spec file as asset
+        if (inputs.attachSpecs && contract) {
+          const snapshotPath = versionManager.getSnapshotPath(contractName);
+          if (snapshotPath && existsSync(snapshotPath)) {
+            const ext = extname(snapshotPath);
+            const assetName = `${contractName}-${newVersion}${ext}`;
+
+            try {
+              await uploadReleaseAsset(octokit, context, release.id, {
+                name: assetName,
+                path: snapshotPath,
+              });
+              core.info(`Attached spec: ${assetName}`);
+            } catch (error) {
+              const message = error instanceof Error ? error.message : 'Unknown error';
+              core.warning(`Failed to attach spec ${assetName}: ${message}`);
+            }
+          }
+        }
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Unknown error';
+        core.warning(`Failed to create release for ${tagName}: ${message}`);
+      }
+    }
+  }
+
+  // Set outputs
+  core.setOutput('created-tags', JSON.stringify(createdTags));
+  core.setOutput('release-urls', JSON.stringify(releaseUrls));
+
+  core.info(`Created ${createdTags.length} tag(s) and ${releaseUrls.length} release(s)`);
+}
+
+/**
+ * Detect bump type by comparing versions
+ */
+function detectBumpType(oldVersion: string, newVersion: string): 'major' | 'minor' | 'patch' {
+  const oldParts = oldVersion.split('.').map((p) => parseInt(p.split('-')[0], 10));
+  const newParts = newVersion.split('.').map((p) => parseInt(p.split('-')[0], 10));
+
+  if (newParts[0] > oldParts[0]) return 'major';
+  if (newParts[1] > oldParts[1]) return 'minor';
+  return 'patch';
 }
 
 /**
  * Check if current commit is a version merge (modified versions.json)
+ * Returns bump information if it is, null otherwise
  */
 async function checkIfVersionMerge(
   octokit: ReturnType<typeof github.getOctokit>,
   context: typeof github.context
-): Promise<boolean> {
+): Promise<VersionMergeInfo | null> {
   try {
     const { data: commit } = await octokit.rest.repos.getCommit({
       owner: context.repo.owner,
@@ -114,17 +312,80 @@ async function checkIfVersionMerge(
       ref: context.sha,
     });
 
-    const isVersionMerge =
-      commit.files?.some((f) => f.filename === '.contractual/versions.json') ?? false;
+    const versionsFile = commit.files?.find(
+      (f) => f.filename === '.contractual/versions.json'
+    );
 
-    if (isVersionMerge) {
-      core.debug('Commit modifies versions.json - detected as version merge');
+    if (!versionsFile) {
+      return null;
     }
 
-    return isVersionMerge;
+    core.debug('Commit modifies versions.json - detected as version merge');
+
+    // Get the current versions.json content
+    const { data: currentContent } = await octokit.rest.repos.getContent({
+      owner: context.repo.owner,
+      repo: context.repo.repo,
+      path: '.contractual/versions.json',
+      ref: context.sha,
+    });
+
+    // Get the parent commit's versions.json content
+    const parentSha = commit.parents?.[0]?.sha;
+    let previousVersions: Record<string, { version: string }> = {};
+
+    if (parentSha) {
+      try {
+        const { data: previousContent } = await octokit.rest.repos.getContent({
+          owner: context.repo.owner,
+          repo: context.repo.repo,
+          path: '.contractual/versions.json',
+          ref: parentSha,
+        });
+
+        if ('content' in previousContent) {
+          const decoded = Buffer.from(previousContent.content, 'base64').toString('utf-8');
+          previousVersions = JSON.parse(decoded);
+        }
+      } catch {
+        // Parent might not have versions.json (first version)
+        core.debug('Could not read parent versions.json - assuming first release');
+      }
+    }
+
+    // Parse current versions
+    let currentVersions: Record<string, { version: string }> = {};
+    if ('content' in currentContent) {
+      const decoded = Buffer.from(currentContent.content, 'base64').toString('utf-8');
+      currentVersions = JSON.parse(decoded);
+    }
+
+    // Calculate bumps by comparing versions
+    const bumps: VersionMergeInfo['bumps'] = [];
+
+    for (const [contractName, entry] of Object.entries(currentVersions)) {
+      const currentVersion = entry.version;
+      const previousVersion = previousVersions[contractName]?.version ?? '0.0.0';
+
+      if (currentVersion !== previousVersion) {
+        bumps.push({
+          contract: contractName,
+          oldVersion: previousVersion,
+          newVersion: currentVersion,
+        });
+        core.info(`Detected bump: ${contractName} ${previousVersion} → ${currentVersion}`);
+      }
+    }
+
+    if (bumps.length === 0) {
+      core.debug('versions.json modified but no version changes detected');
+      return null;
+    }
+
+    return { bumps };
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
     core.warning(`Failed to check if version merge: ${message}`);
-    return false;
+    return null;
   }
 }
