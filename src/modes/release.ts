@@ -25,6 +25,7 @@ import {
 } from '../github/releases.js';
 import { renderVersionPRBody } from '../render/version-pr.js';
 import { renderReleaseNotes } from '../render/release-notes.js';
+import { extractChangelogSection } from '../lib/changelog.js';
 import type { ActionInputs, ChangesetFile, ResolvedConfig } from '../types.js';
 
 /** Full path to changesets directory */
@@ -235,11 +236,14 @@ async function handlePostRelease(
     // Create GitHub Release
     if (inputs.createReleases) {
       try {
+        // Extract changelog section for this version
+        const changes = extractChangelogSection(contractName, newVersion);
+
         const releaseNotes = renderReleaseNotes({
           contractName,
           oldVersion,
           newVersion,
-          changes: '', // TODO: Extract from merged PR body
+          changes,
           bumpType: detectBumpType(oldVersion, newVersion),
         });
 
