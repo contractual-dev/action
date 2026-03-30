@@ -32,6 +32,9 @@ inputs:
     description: 'Branch name for Version Contracts PR'
     required: false
     default: 'contractual/version-contracts'
+  version-pr-base:
+    description: 'Base branch for Version Contracts PR (defaults to repository default branch)'
+    required: false
   pre-release-tag:
     description: 'Pre-release tag (e.g., "alpha", "beta", "rc") - creates versions like 2.0.0-beta.0'
     required: false

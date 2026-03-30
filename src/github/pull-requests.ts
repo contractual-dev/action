@@ -46,7 +46,7 @@ export async function createOrUpdateVersionPR(
   options: VersionPROptions
 ): Promise<string> {
   const { owner, repo } = context.repo;
-  const baseBranch = getDefaultBranch(context);
+  const baseBranch = options.baseBranch || getDefaultBranch(context);
 
   core.debug(`Base branch: ${baseBranch}, Version branch: ${options.branch}`);
 

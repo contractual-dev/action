@@ -74,6 +74,8 @@ export interface VersionPROptions {
   title: string;
   /** PR body markdown */
   body: string;
+  /** Base branch to target (optional, defaults to repository default branch) */
+  baseBranch?: string;
 }
 
 /**
@@ -102,6 +104,7 @@ export interface ActionInputs {
   autoChangeset: boolean;
   versionPrTitle: string;
   versionPrBranch: string;
+  versionPrBase?: string;
   preReleaseTag?: string;
   createReleases: boolean;
   tagPrefix: TagPrefix;
