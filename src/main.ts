@@ -32,7 +32,7 @@ function getInputs(): ActionInputs {
     autoChangeset: core.getInput('auto-changeset') === 'true',
     versionPrTitle: core.getInput('version-pr-title') || 'Version Contracts',
     versionPrBranch: core.getInput('version-pr-branch') || 'contractual/version-contracts',
-    versionPrBase: core.getInput('version-pr-base') || undefined,
+    baseBranch: core.getInput('base-branch') || undefined,
     preReleaseTag: core.getInput('pre-release-tag') || undefined,
     createReleases: core.getInput('create-releases') !== 'false',
     tagPrefix: tagPrefixInput as TagPrefix,

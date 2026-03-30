@@ -104,7 +104,7 @@ export interface ActionInputs {
   autoChangeset: boolean;
   versionPrTitle: string;
   versionPrBranch: string;
-  versionPrBase?: string;
+  baseBranch?: string;
   preReleaseTag?: string;
   createReleases: boolean;
   tagPrefix: TagPrefix;

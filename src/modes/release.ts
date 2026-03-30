@@ -166,7 +166,7 @@ async function handleVersioning(
       branch: inputs.versionPrBranch,
       title: inputs.versionPrTitle,
       body: prBody,
-      baseBranch: inputs.versionPrBase,
+      baseBranch: inputs.baseBranch,
     });
 
     core.setOutput('version-pr-url', prUrl);
