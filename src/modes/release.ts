@@ -10,7 +10,9 @@ import {
   extractContractChanges,
   appendChangelog,
   findContractualDir,
+  incrementVersion,
   incrementVersionWithPreRelease,
+  updateSpecVersion,
   CHANGESETS_DIR,
 } from '@contractual/cli';
 import type { BumpResult } from '@contractual/cli';
@@ -96,16 +98,24 @@ async function handleVersioning(
     let oldVersion: string;
     let newVersion: string;
 
+    const shouldSyncVersion = inputs.syncVersion && contract.syncVersion !== false;
+
     if (inputs.preReleaseTag) {
       // Pre-release mode: calculate version with tag and use setVersion
       oldVersion = versionManager.getVersion(contractName) ?? '0.0.0';
       newVersion = incrementVersionWithPreRelease(oldVersion, bumpType, inputs.preReleaseTag);
+      if (shouldSyncVersion) {
+        updateSpecVersion(contract.absolutePath, newVersion, contract.type);
+      }
       versionManager.setVersion(contractName, newVersion, contract.absolutePath);
     } else {
-      // Normal mode: use bump() which handles increment and snapshot
-      const result = versionManager.bump(contractName, bumpType, contract.absolutePath);
-      oldVersion = result.oldVersion;
-      newVersion = result.newVersion;
+      // Normal mode: compute version first, update spec, then bump (snapshot includes updated version)
+      oldVersion = versionManager.getVersion(contractName) ?? '0.0.0';
+      newVersion = incrementVersion(oldVersion, bumpType);
+      if (shouldSyncVersion) {
+        updateSpecVersion(contract.absolutePath, newVersion, contract.type);
+      }
+      versionManager.bump(contractName, bumpType, contract.absolutePath);
     }
 
     // Extract changes text from changesets

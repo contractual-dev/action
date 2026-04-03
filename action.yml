@@ -50,6 +50,10 @@ inputs:
     description: 'Attach spec files to GitHub Releases as assets'
     required: false
     default: 'true'
+  sync-version:
+    description: 'Update version field inside spec files on version bump (default: true)'
+    required: false
+    default: 'true'
 
 outputs:
   has-breaking:

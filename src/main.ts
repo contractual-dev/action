@@ -37,6 +37,7 @@ function getInputs(): ActionInputs {
     createReleases: core.getInput('create-releases') !== 'false',
     tagPrefix: tagPrefixInput as TagPrefix,
     attachSpecs: core.getInput('attach-specs') !== 'false',
+    syncVersion: core.getInput('sync-version') !== 'false',
   };
 }
 

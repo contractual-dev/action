@@ -109,4 +109,5 @@ export interface ActionInputs {
   createReleases: boolean;
   tagPrefix: TagPrefix;
   attachSpecs: boolean;
+  syncVersion: boolean;
 }
