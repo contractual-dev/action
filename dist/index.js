@@ -44634,7 +44634,7 @@ var require_dist2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.4/node_modules/@contractual/governance/dist/runner.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/runner.js
 var runner_exports = {};
 __export(runner_exports, {
   executeCustomCommand: () => executeCustomCommand,
@@ -44872,7 +44872,7 @@ function parseLineDiffOutput(output) {
   return { contract: "", changes, summary, suggestedBump };
 }
 var init_runner = __esm({
-  "node_modules/.pnpm/@contractual+governance@0.1.0-dev.4/node_modules/@contractual/governance/dist/runner.js"() {
+  "node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/runner.js"() {
     __name(isExecError, "isExecError");
     __name(executeCustomCommand, "executeCustomCommand");
     __name(parseCustomLintOutput, "parseCustomLintOutput");
@@ -79025,15 +79025,15 @@ var core6 = __toESM(require_core());
 var core2 = __toESM(require_core());
 var github = __toESM(require_github());
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.4_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/loader.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/loader.js
 var import_yaml = __toESM(require_dist(), 1);
 var import_fast_glob = __toESM(require_out4(), 1);
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.4_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/validator.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/validator.js
 var import_ajv = __toESM(require_ajv(), 1);
 var import_ajv_formats = __toESM(require_dist2(), 1);
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.4_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/schema.json
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/schema.json
 var schema_default = {
   $schema: "http://json-schema.org/draft-07/schema#",
   $id: "https://contractual.dev/schemas/config.json",
@@ -79161,7 +79161,7 @@ var schema_default = {
   additionalProperties: false
 };
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.4_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/validator.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/validator.js
 var AjvConstructor = import_ajv.default.default ?? import_ajv.default;
 var addFormatsFunc = import_ajv_formats.default.default ?? import_ajv_formats.default;
 function validateConfig(config) {
@@ -79184,7 +79184,7 @@ function formatValidationErrors(errors) {
 }
 __name(formatValidationErrors, "formatValidationErrors");
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.4_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/loader.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/loader.js
 var CONFIG_FILENAMES = ["contractual.yaml", "contractual.yml"];
 var ConfigError = class extends Error {
   static {
@@ -79285,7 +79285,7 @@ function loadConfig(startDir) {
 }
 __name(loadConfig, "loadConfig");
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.4/node_modules/@contractual/governance/dist/registry.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/registry.js
 var linters = /* @__PURE__ */ new Map();
 var differs = /* @__PURE__ */ new Map();
 function registerLinter(type, linter) {
@@ -79392,7 +79392,7 @@ function createCustomDiffer(commandTemplate) {
 }
 __name(createCustomDiffer, "createCustomDiffer");
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.4/node_modules/@contractual/governance/dist/linters/openapi-redocly.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/linters/openapi-redocly.js
 async function lintOpenAPI(specPath) {
   let lint;
   let loadConfig2;
@@ -79443,11 +79443,11 @@ async function lintOpenAPI(specPath) {
 }
 __name(lintOpenAPI, "lintOpenAPI");
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.4/node_modules/@contractual/governance/dist/linters/json-schema-ajv.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/linters/json-schema-ajv.js
 var import_ajv2 = __toESM(require_ajv(), 1);
 var import_ajv_formats2 = __toESM(require_dist2(), 1);
 
-// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.4/node_modules/@contractual/differs.core/dist/types.js
+// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.5/node_modules/@contractual/differs.core/dist/types.js
 var CONSTRAINT_DIRECTION = {
   minimum: "min",
   maximum: "max",
@@ -79546,7 +79546,7 @@ function joinPath(basePath, ...segments) {
 }
 __name(joinPath, "joinPath");
 
-// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.4/node_modules/@contractual/differs.core/dist/walker.js
+// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.5/node_modules/@contractual/differs.core/dist/walker.js
 function walk(oldSchema, newSchema, basePath = "") {
   return walkInternal(oldSchema, newSchema, basePath, 0);
 }
@@ -80537,7 +80537,7 @@ function matchCompositionOptions(oldOptions, newOptions) {
 }
 __name(matchCompositionOptions, "matchCompositionOptions");
 
-// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.4/node_modules/@contractual/differs.core/dist/classifiers.js
+// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.5/node_modules/@contractual/differs.core/dist/classifiers.js
 var BREAKING_CHANGES = /* @__PURE__ */ new Set([
   "property-removed",
   "required-added",
@@ -80560,7 +80560,7 @@ var BREAKING_CHANGES = /* @__PURE__ */ new Set([
   // OpenAPI structural breaking changes
   "path-removed",
   "operation-removed",
-  "parameter-added",
+  "parameter-required-added",
   "parameter-removed",
   "parameter-required-changed",
   "request-body-added",
@@ -80582,6 +80582,7 @@ var NON_BREAKING_CHANGES = /* @__PURE__ */ new Set([
   "oneof-option-removed",
   "allof-member-removed",
   // OpenAPI structural non-breaking changes
+  "parameter-added",
   "path-added",
   "operation-added",
   "request-body-removed",
@@ -80711,7 +80712,7 @@ function isObject(value) {
 }
 __name(isObject, "isObject");
 
-// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.4/node_modules/@contractual/differs.core/dist/ref-resolver.js
+// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.5/node_modules/@contractual/differs.core/dist/ref-resolver.js
 function resolveRefs(schema) {
   const context3 = {
     root: schema,
@@ -80868,9 +80869,9 @@ function isObject2(value) {
 }
 __name(isObject2, "isObject");
 
-// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.4/node_modules/@contractual/differs.core/dist/format.js
+// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.5/node_modules/@contractual/differs.core/dist/format.js
 function formatChangeMessage(change) {
-  const pathDisplay = change.path || "/";
+  const pathDisplay = decodeJsonPointer(change.path || "/");
   switch (change.type) {
     case "property-added":
       return `Property added at ${pathDisplay}`;
@@ -80928,12 +80929,55 @@ function formatChangeMessage(change) {
       return `Default value changed at ${pathDisplay}`;
     case "examples-changed":
       return `Examples changed at ${pathDisplay}`;
+    case "deprecated-changed":
+      return change.newValue ? `Deprecated at ${pathDisplay}` : `No longer deprecated at ${pathDisplay}`;
+    case "read-only-changed":
+      return `readOnly changed at ${pathDisplay}`;
+    case "write-only-changed":
+      return `writeOnly changed at ${pathDisplay}`;
+    // OpenAPI structural changes
+    case "path-added":
+      return `New path added: ${change.newValue ?? pathDisplay}`;
+    case "path-removed":
+      return `Path removed: ${change.oldValue ?? pathDisplay}`;
+    case "operation-added":
+      return `New operation added: ${change.newValue ?? pathDisplay}`;
+    case "operation-removed":
+      return `Operation removed: ${change.oldValue ?? pathDisplay}`;
+    case "parameter-added":
+      return `Optional parameter added at ${pathDisplay}`;
+    case "parameter-required-added":
+      return `Required parameter added at ${pathDisplay}`;
+    case "parameter-removed":
+      return `Parameter removed at ${pathDisplay}`;
+    case "parameter-required-changed":
+      return `Parameter required changed from ${formatValue(change.oldValue)} to ${formatValue(change.newValue)} at ${pathDisplay}`;
+    case "parameter-schema-changed":
+      return `Parameter schema changed at ${pathDisplay}`;
+    case "request-body-added":
+      return `Request body added at ${pathDisplay}`;
+    case "request-body-removed":
+      return `Request body removed at ${pathDisplay}`;
+    case "response-added":
+      return `Response ${formatValue(change.newValue)} added at ${pathDisplay}`;
+    case "response-removed":
+      return `Response ${formatValue(change.oldValue)} removed at ${pathDisplay}`;
+    case "response-schema-changed":
+      return `Response schema changed at ${pathDisplay}`;
+    case "security-changed":
+      return `Security changed at ${pathDisplay}`;
+    case "server-changed":
+      return `Server changed at ${pathDisplay}`;
     case "unknown-change":
     default:
       return `Unknown change at ${pathDisplay}`;
   }
 }
 __name(formatChangeMessage, "formatChangeMessage");
+function decodeJsonPointer(path4) {
+  return path4.replace(/~1/g, "/").replace(/~0/g, "~");
+}
+__name(decodeJsonPointer, "decodeJsonPointer");
 function formatValue(value) {
   if (value === void 0) {
     return "undefined";
@@ -80980,7 +81024,7 @@ function extractConstraintName(path4) {
 }
 __name(extractConstraintName, "extractConstraintName");
 
-// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.4/node_modules/@contractual/differs.core/dist/assemble.js
+// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.5/node_modules/@contractual/differs.core/dist/assemble.js
 function assembleResult(rawChanges, resolvedNewSchema, options) {
   const classifyChange = options?.classifyFn ?? defaultClassify;
   const changes = rawChanges.map((raw) => ({
@@ -81049,7 +81093,7 @@ function diffJsonSchemaObjects(oldSchema, newSchema) {
 }
 __name(diffJsonSchemaObjects, "diffJsonSchemaObjects");
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.4/node_modules/@contractual/governance/dist/linters/json-schema-rules.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/linters/json-schema-rules.js
 var TYPE_SPECIFIC_KEYWORDS = {
   string: ["minLength", "maxLength", "pattern", "format"],
   number: ["minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", "multipleOf"],
@@ -81737,7 +81781,7 @@ function walkSchema(schema, path4, root, visitor) {
 }
 __name(walkSchema, "walkSchema");
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.4/node_modules/@contractual/governance/dist/linters/json-schema-ajv.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/linters/json-schema-ajv.js
 var AjvConstructor2 = import_ajv2.default.default ?? import_ajv2.default;
 var addFormatsFunc2 = import_ajv_formats2.default.default ?? import_ajv_formats2.default;
 async function lintJsonSchema(specPath, options = {}) {
@@ -81808,7 +81852,7 @@ async function lintJsonSchema(specPath, options = {}) {
 }
 __name(lintJsonSchema, "lintJsonSchema");
 
-// node_modules/.pnpm/@contractual+differs.openapi@0.1.0-dev.4/node_modules/@contractual/differs.openapi/dist/resolver.js
+// node_modules/.pnpm/@contractual+differs.openapi@0.1.0-dev.5/node_modules/@contractual/differs.openapi/dist/resolver.js
 async function resolveOpenApiSpec(specPath) {
   let bundle;
   let loadConfig2;
@@ -81827,10 +81871,28 @@ async function resolveOpenApiSpec(specPath) {
 }
 __name(resolveOpenApiSpec, "resolveOpenApiSpec");
 
-// node_modules/.pnpm/@contractual+differs.openapi@0.1.0-dev.4/node_modules/@contractual/differs.openapi/dist/structural.js
+// node_modules/.pnpm/@contractual+differs.openapi@0.1.0-dev.5/node_modules/@contractual/differs.openapi/dist/structural.js
 var HTTP_METHODS = ["get", "put", "post", "delete", "patch", "options", "head", "trace"];
 function diffStructural(oldSpec, newSpec) {
   const changes = [];
+  const oldInfo = oldSpec.info ?? {};
+  const newInfo = newSpec.info ?? {};
+  if (oldInfo.description !== newInfo.description) {
+    changes.push({
+      path: "/info/description",
+      type: "description-changed",
+      oldValue: oldInfo.description,
+      newValue: newInfo.description
+    });
+  }
+  if (oldInfo.title !== newInfo.title) {
+    changes.push({
+      path: "/info/title",
+      type: "title-changed",
+      oldValue: oldInfo.title,
+      newValue: newInfo.title
+    });
+  }
   const oldPaths = oldSpec.paths ?? {};
   const newPaths = newSpec.paths ?? {};
   for (const path4 of Object.keys(oldPaths)) {
@@ -81878,6 +81940,7 @@ function diffOperations(oldPathItem, newPathItem, apiPath) {
       });
     } else if (oldOp && newOp) {
       const basePath = `/paths/${escapedPath}/${method}`;
+      changes.push(...diffOperationMetadata(oldOp, newOp, basePath));
       changes.push(...diffParameters(oldOp, newOp, basePath));
       changes.push(...diffRequestBody(oldOp, newOp, basePath));
       changes.push(...diffResponses(oldOp, newOp, basePath));
@@ -81886,6 +81949,35 @@ function diffOperations(oldPathItem, newPathItem, apiPath) {
   return changes;
 }
 __name(diffOperations, "diffOperations");
+function diffOperationMetadata(oldOp, newOp, basePath) {
+  const changes = [];
+  if (oldOp.description !== newOp.description) {
+    changes.push({
+      path: `${basePath}/description`,
+      type: "description-changed",
+      oldValue: oldOp.description,
+      newValue: newOp.description
+    });
+  }
+  if (oldOp.summary !== newOp.summary) {
+    changes.push({
+      path: `${basePath}/summary`,
+      type: "title-changed",
+      oldValue: oldOp.summary,
+      newValue: newOp.summary
+    });
+  }
+  if (oldOp.deprecated !== newOp.deprecated) {
+    changes.push({
+      path: `${basePath}/deprecated`,
+      type: "deprecated-changed",
+      oldValue: oldOp.deprecated,
+      newValue: newOp.deprecated
+    });
+  }
+  return changes;
+}
+__name(diffOperationMetadata, "diffOperationMetadata");
 function diffParameters(oldOp, newOp, basePath) {
   const changes = [];
   const oldParams = oldOp.parameters ?? [];
@@ -81919,7 +82011,7 @@ function diffParameters(oldOp, newOp, basePath) {
     if (!oldByKey.has(key)) {
       changes.push({
         path: `${basePath}/parameters/${newParam.name}`,
-        type: "parameter-added",
+        type: newParam.required ? "parameter-required-added" : "parameter-added",
         newValue: key
       });
     }
@@ -81999,7 +82091,7 @@ function diffResponses(oldOp, newOp, basePath) {
 }
 __name(diffResponses, "diffResponses");
 
-// node_modules/.pnpm/@contractual+differs.openapi@0.1.0-dev.4/node_modules/@contractual/differs.openapi/dist/differ.js
+// node_modules/.pnpm/@contractual+differs.openapi@0.1.0-dev.5/node_modules/@contractual/differs.openapi/dist/differ.js
 async function diffOpenApi(oldSpecPath, newSpecPath) {
   const oldSpec = await resolveOpenApiSpec(oldSpecPath);
   const newSpec = await resolveOpenApiSpec(newSpecPath);
@@ -82012,7 +82104,7 @@ function diffOpenApiObjects(oldSpec, newSpec) {
 }
 __name(diffOpenApiObjects, "diffOpenApiObjects");
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.4/node_modules/@contractual/governance/dist/index.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/index.js
 init_runner();
 function registerAllEngines() {
   registerLinter("openapi", lintOpenAPI);
@@ -82023,10 +82115,10 @@ function registerAllEngines() {
 __name(registerAllEngines, "registerAllEngines");
 registerAllEngines();
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.4_@types+node@20.19.33/node_modules/@contractual/cli/dist/utils/files.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/utils/files.js
 __toESM(require_dist(), 1);
 
-// node_modules/.pnpm/@contractual+changesets@0.1.0-dev.4/node_modules/@contractual/changesets/dist/changesets/naming.js
+// node_modules/.pnpm/@contractual+changesets@0.1.0-dev.5/node_modules/@contractual/changesets/dist/changesets/naming.js
 var ADJECTIVES = [
   "brave",
   "calm",
@@ -82110,7 +82202,7 @@ function generateChangesetName() {
 }
 __name(generateChangesetName, "generateChangesetName");
 
-// node_modules/.pnpm/@contractual+changesets@0.1.0-dev.4/node_modules/@contractual/changesets/dist/changesets/create.js
+// node_modules/.pnpm/@contractual+changesets@0.1.0-dev.5/node_modules/@contractual/changesets/dist/changesets/create.js
 var SEVERITY_LABELS = {
   breaking: "BREAKING",
   "non-breaking": "minor",
@@ -82167,7 +82259,7 @@ ${body}
 }
 __name(createChangeset, "createChangeset");
 
-// node_modules/.pnpm/@contractual+changesets@0.1.0-dev.4/node_modules/@contractual/changesets/dist/changesets/read.js
+// node_modules/.pnpm/@contractual+changesets@0.1.0-dev.5/node_modules/@contractual/changesets/dist/changesets/read.js
 var import_yaml2 = __toESM(require_dist(), 1);
 var VALID_BUMP_TYPES = ["major", "minor", "patch"];
 var ChangesetParseError = class extends Error {
@@ -82246,7 +82338,7 @@ async function readChangesets(changesetsDir) {
 }
 __name(readChangesets, "readChangesets");
 
-// node_modules/.pnpm/@contractual+changesets@0.1.0-dev.4/node_modules/@contractual/changesets/dist/changesets/consume.js
+// node_modules/.pnpm/@contractual+changesets@0.1.0-dev.5/node_modules/@contractual/changesets/dist/changesets/consume.js
 var BUMP_PRIORITY = {
   major: 3,
   minor: 2,
@@ -82306,7 +82398,7 @@ function escapeRegex(str) {
 }
 __name(escapeRegex, "escapeRegex");
 
-// node_modules/.pnpm/@contractual+changesets@0.1.0-dev.4/node_modules/@contractual/changesets/dist/versioning/manager.js
+// node_modules/.pnpm/@contractual+changesets@0.1.0-dev.5/node_modules/@contractual/changesets/dist/versioning/manager.js
 var semver = __toESM(require_semver2(), 1);
 var DEFAULT_VERSION = "0.0.0";
 var SPEC_EXTENSIONS = [".yaml", ".yml", ".json"];
@@ -82555,7 +82647,7 @@ ${existingContent}`;
 }
 __name(appendChangelog, "appendChangelog");
 
-// node_modules/.pnpm/@contractual+changesets@0.1.0-dev.4/node_modules/@contractual/changesets/dist/versioning/spec-updater.js
+// node_modules/.pnpm/@contractual+changesets@0.1.0-dev.5/node_modules/@contractual/changesets/dist/versioning/spec-updater.js
 var import_yaml3 = __toESM(require_dist(), 1);
 var VERSION_FIELD_PATHS = {
   openapi: ["info", "version"],
@@ -82611,7 +82703,7 @@ function updateSpecVersion(specPath, newVersion, contractType) {
 }
 __name(updateSpecVersion, "updateSpecVersion");
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.4_@types+node@20.19.33/node_modules/@contractual/cli/dist/utils/files.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/utils/files.js
 var CONTRACTUAL_DIR = ".contractual";
 function findContractualDir(startDir = process.cwd()) {
   let currentDir = path.resolve(startDir);
@@ -82646,7 +82738,7 @@ function getSnapshotPath(contractName, contractualDir) {
 }
 __name(getSnapshotPath, "getSnapshotPath");
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.4_@types+node@20.19.33/node_modules/@contractual/cli/dist/core/diff.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/core/diff.js
 async function diffContracts(config, options = {}) {
   const contractualDir = findContractualDir(config.configDir);
   if (!contractualDir) {

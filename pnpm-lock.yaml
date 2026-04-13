@@ -25,11 +25,11 @@ importers:
         version: 1.34.11
     devDependencies:
       '@contractual/cli':
-        specifier: 0.1.0-dev.4
-        version: 0.1.0-dev.4(@types/node@20.19.33)
+        specifier: 0.1.0-dev.5
+        version: 0.1.0-dev.5(@types/node@20.19.33)
       '@contractual/governance':
-        specifier: 0.1.0-dev.4
-        version: 0.1.0-dev.4
+        specifier: 0.1.0-dev.5
+        version: 0.1.0-dev.5
       '@types/node':
         specifier: ^20.11.0
         version: 20.19.33
@@ -72,33 +72,33 @@ packages:
   '@actions/io@3.0.2':
     resolution: {integrity: sha512-nRBchcMM+QK1pdjO7/idu86rbJI5YHUKCvKs0KxnSYbVe3F51UfGxuZX4Qy/fWlp6l7gWFwIkrOzN+oUK03kfw==}
 
-  '@contractual/changesets@0.1.0-dev.4':
-    resolution: {integrity: sha512-RbP1kPdeu+u/3KlffL8KxEGyuw44jb7B0c9l1aLQ4rL+l/nGOD5+PVhma1Q014qIlo6e5A123WIBNZiKmj1XUA==}
+  '@contractual/changesets@0.1.0-dev.5':
+    resolution: {integrity: sha512-OpC7l/eQEBb+fyl9UGJEshm0pwDI69H/9Vf1vsKJ81TYzURys5YI8Sm/HO6ReFmWSkeGwIOdMMJvjOISAwZ+AQ==}
     engines: {node: '>=20.0.0'}
 
-  '@contractual/cli@0.1.0-dev.4':
-    resolution: {integrity: sha512-hZUMowiWga4z43we7TNkoMJzd2M++1BgtzQuvnP+Ecg8hxlQyJuwJwCXQtWf9+3K3Y2x4WGmQ2tOPzZN0sGVsA==}
+  '@contractual/cli@0.1.0-dev.5':
+    resolution: {integrity: sha512-Ne2GWrv4nnYk99ZaSZ3kq9VH/C3edNLq5sBMy4+61EpZgkqTxB63OkvzZarHFA5G+7uwOuBHTvPZ8w2d+dUTQQ==}
     engines: {node: '>=20.0.0'}
     hasBin: true
 
-  '@contractual/differs.core@0.1.0-dev.4':
-    resolution: {integrity: sha512-Omo4tsrmQU4ENrh3FSVBCrowzbU6Tq2/oPXACTRD+MYRAbw656NUmLL9sHwZQji5XKWFH0F3rxkueyPgZpfosA==}
+  '@contractual/differs.core@0.1.0-dev.5':
+    resolution: {integrity: sha512-BbZ4FanPJlXmjK3WvhMCFoi8VOD+XS9jByzLmhnyKjT1jyMhJFvN6FJUo+K5nJtTVhEteov89kmooeBL1cmEjw==}
     engines: {node: '>=20.0.0'}
 
-  '@contractual/differs.json-schema@0.1.0-dev.4':
-    resolution: {integrity: sha512-ChK05wzny/wNNWcnBA7PBXW72UCiPnf4lAS2G8xZlaM4okdVgGiNpnAxcOjuxNGtb3EhgZVTlCBlZcQZ6SLzOQ==}
+  '@contractual/differs.json-schema@0.1.0-dev.5':
+    resolution: {integrity: sha512-zrTcmo6Mo+RKVcxyG2nXxlhU2ma8FLNL9h3GG27kBPCfBII3yxvSjGC88Uxy1uaZjiE/PbO5wIt+1iIeE6h3IA==}
     engines: {node: '>=20.0.0'}
 
-  '@contractual/differs.openapi@0.1.0-dev.4':
-    resolution: {integrity: sha512-QoEFDpYD1X33HHgCyGjhmdg/wT1hHwkFpQqqLmTUaRGt2F1BRxP15YxNZoWYSMsg4+dCcVJwLPYnQLCnYPr+CA==}
+  '@contractual/differs.openapi@0.1.0-dev.5':
+    resolution: {integrity: sha512-vHXg5sdUtIfCyxzaXJaa3WWlnvxuurrpD5R+veEe1ubEFwzE1Bu/ZRFb0kB/ex4ZzYUf6ZbmCMVbPdayJxFLXQ==}
     engines: {node: '>=20.0.0'}
 
-  '@contractual/governance@0.1.0-dev.4':
-    resolution: {integrity: sha512-ip3UTYmzP/73UZSsS9bR+tsC5l3dWb4MABATW4Iq6b/ZVSYVZ1s6L0WsQ9WW90du6g4lzhE5pedJ3G/bYTmOcg==}
+  '@contractual/governance@0.1.0-dev.5':
+    resolution: {integrity: sha512-VSYr3TX+d9FnntaNnHLvB37I9LZCRsLJ975fuWzqgoi0d8tUJGLoYI48BZdd5TrPt6Ex2vN7+5hCyxh8j4w3Vw==}
     engines: {node: '>=20.0.0'}
 
-  '@contractual/types@0.1.0-dev.4':
-    resolution: {integrity: sha512-9I7k1L6AxHH6cMOaTbIYhHjCFfCYMOWU41S42h3YO0EaMpKY5KbLaQirGMN24yM3+DFEfk43iWjtgqM1FXYu4A==}
+  '@contractual/types@0.1.0-dev.5':
+    resolution: {integrity: sha512-TL3wdOliYa7Uc4niiiq2zpluGT0/8hjVs7W93tik1RZNJo7XDCj5qDIhGZwUGUffwBG77gGcgLhb9W3j4mImbg==}
     engines: {node: '>=20.0.0'}
 
   '@esbuild/aix-ppc64@0.27.3':
@@ -1445,17 +1445,17 @@ snapshots:
 
   '@actions/io@3.0.2': {}
 
-  '@contractual/changesets@0.1.0-dev.4':
+  '@contractual/changesets@0.1.0-dev.5':
     dependencies:
-      '@contractual/types': 0.1.0-dev.4
+      '@contractual/types': 0.1.0-dev.5
       semver: 7.7.4
       yaml: 2.8.2
 
-  '@contractual/cli@0.1.0-dev.4(@types/node@20.19.33)':
+  '@contractual/cli@0.1.0-dev.5(@types/node@20.19.33)':
     dependencies:
-      '@contractual/changesets': 0.1.0-dev.4
-      '@contractual/governance': 0.1.0-dev.4
-      '@contractual/types': 0.1.0-dev.4
+      '@contractual/changesets': 0.1.0-dev.5
+      '@contractual/governance': 0.1.0-dev.5
+      '@contractual/types': 0.1.0-dev.5
       '@inquirer/prompts': 8.1.0(@types/node@20.19.33)
       ajv: 8.18.0
       ajv-formats: 3.0.1(ajv@8.18.0)
@@ -1468,34 +1468,34 @@ snapshots:
       - '@types/node'
       - supports-color
 
-  '@contractual/differs.core@0.1.0-dev.4':
+  '@contractual/differs.core@0.1.0-dev.5':
     dependencies:
-      '@contractual/types': 0.1.0-dev.4
+      '@contractual/types': 0.1.0-dev.5
 
-  '@contractual/differs.json-schema@0.1.0-dev.4':
+  '@contractual/differs.json-schema@0.1.0-dev.5':
     dependencies:
-      '@contractual/differs.core': 0.1.0-dev.4
-      '@contractual/types': 0.1.0-dev.4
+      '@contractual/differs.core': 0.1.0-dev.5
+      '@contractual/types': 0.1.0-dev.5
 
-  '@contractual/differs.openapi@0.1.0-dev.4':
+  '@contractual/differs.openapi@0.1.0-dev.5':
     dependencies:
-      '@contractual/differs.core': 0.1.0-dev.4
-      '@contractual/types': 0.1.0-dev.4
+      '@contractual/differs.core': 0.1.0-dev.5
+      '@contractual/types': 0.1.0-dev.5
       '@redocly/openapi-core': 1.34.11
     transitivePeerDependencies:
       - supports-color
 
-  '@contractual/governance@0.1.0-dev.4':
+  '@contractual/governance@0.1.0-dev.5':
     dependencies:
-      '@contractual/differs.json-schema': 0.1.0-dev.4
-      '@contractual/differs.openapi': 0.1.0-dev.4
-      '@contractual/types': 0.1.0-dev.4
+      '@contractual/differs.json-schema': 0.1.0-dev.5
+      '@contractual/differs.openapi': 0.1.0-dev.5
+      '@contractual/types': 0.1.0-dev.5
       ajv: 8.18.0
       ajv-formats: 3.0.1(ajv@8.18.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@contractual/types@0.1.0-dev.4': {}
+  '@contractual/types@0.1.0-dev.5': {}
 
   '@esbuild/aix-ppc64@0.27.3':
     optional: true
