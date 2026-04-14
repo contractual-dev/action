@@ -24527,9 +24527,9 @@ var require_github = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/identity.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/identity.js
 var require_identity = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/identity.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/identity.js"(exports$1) {
     var ALIAS = /* @__PURE__ */ Symbol.for("yaml.alias");
     var DOC = /* @__PURE__ */ Symbol.for("yaml.document");
     var MAP = /* @__PURE__ */ Symbol.for("yaml.map");
@@ -24585,9 +24585,9 @@ var require_identity = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/visit.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/visit.js
 var require_visit = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/visit.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/visit.js"(exports$1) {
     var identity = require_identity();
     var BREAK = /* @__PURE__ */ Symbol("break visit");
     var SKIP = /* @__PURE__ */ Symbol("skip children");
@@ -24749,9 +24749,9 @@ var require_visit = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/doc/directives.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/doc/directives.js
 var require_directives = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/doc/directives.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/doc/directives.js"(exports$1) {
     var identity = require_identity();
     var visit = require_visit();
     var escapeChars = {
@@ -24922,9 +24922,9 @@ var require_directives = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/doc/anchors.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/doc/anchors.js
 var require_anchors = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/doc/anchors.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/doc/anchors.js"(exports$1) {
     var identity = require_identity();
     var visit = require_visit();
     function anchorIsValid(anchor) {
@@ -24995,9 +24995,9 @@ var require_anchors = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/doc/applyReviver.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/doc/applyReviver.js
 var require_applyReviver = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/doc/applyReviver.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/doc/applyReviver.js"(exports$1) {
     function applyReviver(reviver, obj, key, val) {
       if (val && typeof val === "object") {
         if (Array.isArray(val)) {
@@ -25045,9 +25045,9 @@ var require_applyReviver = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/toJS.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/toJS.js
 var require_toJS = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/toJS.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/toJS.js"(exports$1) {
     var identity = require_identity();
     function toJS(value, arg, ctx) {
       if (Array.isArray(value))
@@ -25075,9 +25075,9 @@ var require_toJS = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/Node.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/Node.js
 var require_Node = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/Node.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/Node.js"(exports$1) {
     var applyReviver = require_applyReviver();
     var identity = require_identity();
     var toJS = require_toJS();
@@ -25118,9 +25118,9 @@ var require_Node = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/Alias.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/Alias.js
 var require_Alias = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/Alias.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/Alias.js"(exports$1) {
     var anchors = require_anchors();
     var visit = require_visit();
     var identity = require_identity();
@@ -25235,9 +25235,9 @@ var require_Alias = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/Scalar.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/Scalar.js
 var require_Scalar = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/Scalar.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/Scalar.js"(exports$1) {
     var identity = require_identity();
     var Node = require_Node();
     var toJS = require_toJS();
@@ -25267,9 +25267,9 @@ var require_Scalar = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/doc/createNode.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/doc/createNode.js
 var require_createNode = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/doc/createNode.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/doc/createNode.js"(exports$1) {
     var Alias = require_Alias();
     var identity = require_identity();
     var Scalar = require_Scalar();
@@ -25343,9 +25343,9 @@ var require_createNode = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/Collection.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/Collection.js
 var require_Collection = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/Collection.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/Collection.js"(exports$1) {
     var createNode = require_createNode();
     var identity = require_identity();
     var Node = require_Node();
@@ -25489,9 +25489,9 @@ var require_Collection = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringifyComment.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringifyComment.js
 var require_stringifyComment = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringifyComment.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringifyComment.js"(exports$1) {
     var stringifyComment = /* @__PURE__ */ __name((str) => str.replace(/^(?!$)(?: $)?/gm, "#"), "stringifyComment");
     function indentComment(comment, indent) {
       if (/^\n+$/.test(comment))
@@ -25506,9 +25506,9 @@ var require_stringifyComment = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/foldFlowLines.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/foldFlowLines.js
 var require_foldFlowLines = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/foldFlowLines.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/foldFlowLines.js"(exports$1) {
     var FOLD_FLOW = "flow";
     var FOLD_BLOCK = "block";
     var FOLD_QUOTED = "quoted";
@@ -25643,9 +25643,9 @@ ${indent}${text.slice(fold + 1, end2)}`;
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringifyString.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringifyString.js
 var require_stringifyString = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringifyString.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringifyString.js"(exports$1) {
     var Scalar = require_Scalar();
     var foldFlowLines = require_foldFlowLines();
     var getFoldOptions = /* @__PURE__ */ __name((ctx, isBlock) => ({
@@ -25932,9 +25932,9 @@ ${indent}`);
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringify.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringify.js
 var require_stringify = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringify.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringify.js"(exports$1) {
     var anchors = require_anchors();
     var identity = require_identity();
     var stringifyComment = require_stringifyComment();
@@ -25956,6 +25956,7 @@ var require_stringify = __commonJS({
         nullStr: "null",
         simpleKeys: false,
         singleQuote: null,
+        trailingComma: false,
         trueStr: "true",
         verifyAliasOrder: true
       }, doc.schema.toStringOptions, options);
@@ -26058,9 +26059,9 @@ ${ctx.indent}${str}`;
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringifyPair.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringifyPair.js
 var require_stringifyPair = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringifyPair.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringifyPair.js"(exports$1) {
     var identity = require_identity();
     var Scalar = require_Scalar();
     var stringify = require_stringify();
@@ -26191,9 +26192,9 @@ ${ctx.indent}`;
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/log.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/log.js
 var require_log = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/log.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/log.js"(exports$1) {
     var node_process = __require("process");
     function debug6(logLevel, ...messages) {
       if (logLevel === "debug")
@@ -26214,9 +26215,9 @@ var require_log = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/merge.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/merge.js
 var require_merge = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/merge.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/merge.js"(exports$1) {
     var identity = require_identity();
     var Scalar = require_Scalar();
     var MERGE_KEY = "<<";
@@ -26272,9 +26273,9 @@ var require_merge = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/addPairToJSMap.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/addPairToJSMap.js
 var require_addPairToJSMap = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/addPairToJSMap.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/addPairToJSMap.js"(exports$1) {
     var log = require_log();
     var merge = require_merge();
     var stringify = require_stringify();
@@ -26337,9 +26338,9 @@ var require_addPairToJSMap = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/Pair.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/Pair.js
 var require_Pair = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/Pair.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/Pair.js"(exports$1) {
     var createNode = require_createNode();
     var stringifyPair = require_stringifyPair();
     var addPairToJSMap = require_addPairToJSMap();
@@ -26380,9 +26381,9 @@ var require_Pair = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringifyCollection.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringifyCollection.js
 var require_stringifyCollection = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringifyCollection.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringifyCollection.js"(exports$1) {
     var identity = require_identity();
     var stringify = require_stringify();
     var stringifyComment = require_stringifyComment();
@@ -26484,12 +26485,19 @@ ${indent}${line}` : "\n";
         if (comment)
           reqNewline = true;
         let str = stringify.stringify(item, itemCtx, () => comment = null);
-        if (i < items.length - 1)
+        reqNewline || (reqNewline = lines.length > linesAtValue || str.includes("\n"));
+        if (i < items.length - 1) {
           str += ",";
+        } else if (ctx.options.trailingComma) {
+          if (ctx.options.lineWidth > 0) {
+            reqNewline || (reqNewline = lines.reduce((sum, line) => sum + line.length + 2, 2) + (str.length + 2) > ctx.options.lineWidth);
+          }
+          if (reqNewline) {
+            str += ",";
+          }
+        }
         if (comment)
           str += stringifyComment.lineComment(str, itemIndent, commentString(comment));
-        if (!reqNewline && (lines.length > linesAtValue || str.includes("\n")))
-          reqNewline = true;
         lines.push(str);
         linesAtValue = lines.length;
       }
@@ -26527,9 +26535,9 @@ ${indent}${end}`;
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/YAMLMap.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/YAMLMap.js
 var require_YAMLMap = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/YAMLMap.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/YAMLMap.js"(exports$1) {
     var stringifyCollection = require_stringifyCollection();
     var addPairToJSMap = require_addPairToJSMap();
     var Collection = require_Collection();
@@ -26674,9 +26682,9 @@ var require_YAMLMap = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/common/map.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/common/map.js
 var require_map = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/common/map.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/common/map.js"(exports$1) {
     var identity = require_identity();
     var YAMLMap = require_YAMLMap();
     var map = {
@@ -26695,9 +26703,9 @@ var require_map = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/YAMLSeq.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/YAMLSeq.js
 var require_YAMLSeq = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/nodes/YAMLSeq.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/nodes/YAMLSeq.js"(exports$1) {
     var createNode = require_createNode();
     var stringifyCollection = require_stringifyCollection();
     var Collection = require_Collection();
@@ -26814,9 +26822,9 @@ var require_YAMLSeq = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/common/seq.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/common/seq.js
 var require_seq = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/common/seq.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/common/seq.js"(exports$1) {
     var identity = require_identity();
     var YAMLSeq = require_YAMLSeq();
     var seq = {
@@ -26835,9 +26843,9 @@ var require_seq = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/common/string.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/common/string.js
 var require_string = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/common/string.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/common/string.js"(exports$1) {
     var stringifyString = require_stringifyString();
     var string = {
       identify: /* @__PURE__ */ __name((value) => typeof value === "string", "identify"),
@@ -26853,9 +26861,9 @@ var require_string = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/common/null.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/common/null.js
 var require_null = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/common/null.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/common/null.js"(exports$1) {
     var Scalar = require_Scalar();
     var nullTag = {
       identify: /* @__PURE__ */ __name((value) => value == null, "identify"),
@@ -26870,9 +26878,9 @@ var require_null = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/core/bool.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/core/bool.js
 var require_bool = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/core/bool.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/core/bool.js"(exports$1) {
     var Scalar = require_Scalar();
     var boolTag = {
       identify: /* @__PURE__ */ __name((value) => typeof value === "boolean", "identify"),
@@ -26893,9 +26901,9 @@ var require_bool = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringifyNumber.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringifyNumber.js
 var require_stringifyNumber = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringifyNumber.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringifyNumber.js"(exports$1) {
     function stringifyNumber({ format, minFractionDigits, tag, value }) {
       if (typeof value === "bigint")
         return String(value);
@@ -26920,9 +26928,9 @@ var require_stringifyNumber = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/core/float.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/core/float.js
 var require_float = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/core/float.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/core/float.js"(exports$1) {
     var Scalar = require_Scalar();
     var stringifyNumber = require_stringifyNumber();
     var floatNaN = {
@@ -26965,9 +26973,9 @@ var require_float = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/core/int.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/core/int.js
 var require_int = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/core/int.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/core/int.js"(exports$1) {
     var stringifyNumber = require_stringifyNumber();
     var intIdentify = /* @__PURE__ */ __name((value) => typeof value === "bigint" || Number.isInteger(value), "intIdentify");
     var intResolve = /* @__PURE__ */ __name((str, offset, radix, { intAsBigInt }) => intAsBigInt ? BigInt(str) : parseInt(str.substring(offset), radix), "intResolve");
@@ -27010,9 +27018,9 @@ var require_int = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/core/schema.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/core/schema.js
 var require_schema = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/core/schema.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/core/schema.js"(exports$1) {
     var map = require_map();
     var _null = require_null();
     var seq = require_seq();
@@ -27037,9 +27045,9 @@ var require_schema = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/json/schema.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/json/schema.js
 var require_schema2 = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/json/schema.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/json/schema.js"(exports$1) {
     var Scalar = require_Scalar();
     var map = require_map();
     var seq = require_seq();
@@ -27104,9 +27112,9 @@ var require_schema2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/binary.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/binary.js
 var require_binary = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/binary.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/binary.js"(exports$1) {
     var node_buffer = __require("buffer");
     var Scalar = require_Scalar();
     var stringifyString = require_stringifyString();
@@ -27169,9 +27177,9 @@ var require_binary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/pairs.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/pairs.js
 var require_pairs = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/pairs.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/pairs.js"(exports$1) {
     var identity = require_identity();
     var Pair = require_Pair();
     var Scalar = require_Scalar();
@@ -27248,9 +27256,9 @@ ${cn.comment}` : item.comment;
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/omap.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/omap.js
 var require_omap = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/omap.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/omap.js"(exports$1) {
     var identity = require_identity();
     var toJS = require_toJS();
     var YAMLMap = require_YAMLMap();
@@ -27328,9 +27336,9 @@ var require_omap = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/bool.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/bool.js
 var require_bool2 = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/bool.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/bool.js"(exports$1) {
     var Scalar = require_Scalar();
     function boolStringify({ value, source }, ctx) {
       const boolObj = value ? trueTag : falseTag;
@@ -27360,9 +27368,9 @@ var require_bool2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/float.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/float.js
 var require_float2 = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/float.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/float.js"(exports$1) {
     var Scalar = require_Scalar();
     var stringifyNumber = require_stringifyNumber();
     var floatNaN = {
@@ -27408,9 +27416,9 @@ var require_float2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/int.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/int.js
 var require_int2 = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/int.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/int.js"(exports$1) {
     var stringifyNumber = require_stringifyNumber();
     var intIdentify = /* @__PURE__ */ __name((value) => typeof value === "bigint" || Number.isInteger(value), "intIdentify");
     function intResolve(str, offset, radix, { intAsBigInt }) {
@@ -27488,9 +27496,9 @@ var require_int2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/set.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/set.js
 var require_set = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/set.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/set.js"(exports$1) {
     var identity = require_identity();
     var Pair = require_Pair();
     var YAMLMap = require_YAMLMap();
@@ -27579,9 +27587,9 @@ var require_set = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/timestamp.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/timestamp.js
 var require_timestamp = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/timestamp.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/timestamp.js"(exports$1) {
     var stringifyNumber = require_stringifyNumber();
     function parseSexagesimal(str, asBigInt) {
       const sign = str[0];
@@ -27668,9 +27676,9 @@ var require_timestamp = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/schema.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/schema.js
 var require_schema3 = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/yaml-1.1/schema.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/yaml-1.1/schema.js"(exports$1) {
     var map = require_map();
     var _null = require_null();
     var seq = require_seq();
@@ -27711,9 +27719,9 @@ var require_schema3 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/tags.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/tags.js
 var require_tags = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/tags.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/tags.js"(exports$1) {
     var map = require_map();
     var _null = require_null();
     var seq = require_seq();
@@ -27805,9 +27813,9 @@ var require_tags = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/Schema.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/Schema.js
 var require_Schema = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/schema/Schema.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/schema/Schema.js"(exports$1) {
     var identity = require_identity();
     var map = require_map();
     var seq = require_seq();
@@ -27839,9 +27847,9 @@ var require_Schema = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringifyDocument.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringifyDocument.js
 var require_stringifyDocument = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/stringify/stringifyDocument.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/stringify/stringifyDocument.js"(exports$1) {
     var identity = require_identity();
     var stringify = require_stringify();
     var stringifyComment = require_stringifyComment();
@@ -27919,9 +27927,9 @@ var require_stringifyDocument = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/doc/Document.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/doc/Document.js
 var require_Document = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/doc/Document.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/doc/Document.js"(exports$1) {
     var Alias = require_Alias();
     var Collection = require_Collection();
     var identity = require_identity();
@@ -28231,9 +28239,9 @@ var require_Document = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/errors.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/errors.js
 var require_errors2 = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/errors.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/errors.js"(exports$1) {
     var YAMLError = class extends Error {
       static {
         __name(this, "YAMLError");
@@ -28304,9 +28312,9 @@ ${pointer}
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-props.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-props.js
 var require_resolve_props = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-props.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-props.js"(exports$1) {
     function resolveProps(tokens, { flow, indicator, next, offset, onError, parentIndent, startOnNewline }) {
       let spaceBefore = false;
       let atNewline = startOnNewline;
@@ -28438,9 +28446,9 @@ var require_resolve_props = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/util-contains-newline.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/util-contains-newline.js
 var require_util_contains_newline = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/util-contains-newline.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/util-contains-newline.js"(exports$1) {
     function containsNewline(key) {
       if (!key)
         return null;
@@ -28480,9 +28488,9 @@ var require_util_contains_newline = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/util-flow-indent-check.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/util-flow-indent-check.js
 var require_util_flow_indent_check = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/util-flow-indent-check.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/util-flow-indent-check.js"(exports$1) {
     var utilContainsNewline = require_util_contains_newline();
     function flowIndentCheck(indent, fc, onError) {
       if (fc?.type === "flow-collection") {
@@ -28498,9 +28506,9 @@ var require_util_flow_indent_check = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/util-map-includes.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/util-map-includes.js
 var require_util_map_includes = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/util-map-includes.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/util-map-includes.js"(exports$1) {
     var identity = require_identity();
     function mapIncludes(ctx, items, search) {
       const { uniqueKeys } = ctx.options;
@@ -28514,9 +28522,9 @@ var require_util_map_includes = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-block-map.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-block-map.js
 var require_resolve_block_map = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-block-map.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-block-map.js"(exports$1) {
     var Pair = require_Pair();
     var YAMLMap = require_YAMLMap();
     var resolveProps = require_resolve_props();
@@ -28622,9 +28630,9 @@ var require_resolve_block_map = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-block-seq.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-block-seq.js
 var require_resolve_block_seq = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-block-seq.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-block-seq.js"(exports$1) {
     var YAMLSeq = require_YAMLSeq();
     var resolveProps = require_resolve_props();
     var utilFlowIndentCheck = require_util_flow_indent_check();
@@ -28673,9 +28681,9 @@ var require_resolve_block_seq = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-end.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-end.js
 var require_resolve_end = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-end.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-end.js"(exports$1) {
     function resolveEnd(end, offset, reqSpace, onError) {
       let comment = "";
       if (end) {
@@ -28716,9 +28724,9 @@ var require_resolve_end = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-flow-collection.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-flow-collection.js
 var require_resolve_flow_collection = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-flow-collection.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-flow-collection.js"(exports$1) {
     var identity = require_identity();
     var Pair = require_Pair();
     var YAMLMap = require_YAMLMap();
@@ -28910,9 +28918,9 @@ var require_resolve_flow_collection = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/compose-collection.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/compose-collection.js
 var require_compose_collection = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/compose-collection.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/compose-collection.js"(exports$1) {
     var identity = require_identity();
     var Scalar = require_Scalar();
     var YAMLMap = require_YAMLMap();
@@ -28976,9 +28984,9 @@ var require_compose_collection = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-block-scalar.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-block-scalar.js
 var require_resolve_block_scalar = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-block-scalar.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-block-scalar.js"(exports$1) {
     var Scalar = require_Scalar();
     function resolveBlockScalar(ctx, scalar, onError) {
       const start = scalar.offset;
@@ -29161,9 +29169,9 @@ var require_resolve_block_scalar = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-flow-scalar.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-flow-scalar.js
 var require_resolve_flow_scalar = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/resolve-flow-scalar.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/resolve-flow-scalar.js"(exports$1) {
     var Scalar = require_Scalar();
     var resolveEnd = require_resolve_end();
     function resolveFlowScalar(scalar, strict, onError) {
@@ -29386,9 +29394,9 @@ var require_resolve_flow_scalar = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/compose-scalar.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/compose-scalar.js
 var require_compose_scalar = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/compose-scalar.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/compose-scalar.js"(exports$1) {
     var identity = require_identity();
     var Scalar = require_Scalar();
     var resolveBlockScalar = require_resolve_block_scalar();
@@ -29469,9 +29477,9 @@ var require_compose_scalar = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/util-empty-scalar-position.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/util-empty-scalar-position.js
 var require_util_empty_scalar_position = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/util-empty-scalar-position.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/util-empty-scalar-position.js"(exports$1) {
     function emptyScalarPosition(offset, before, pos) {
       if (before) {
         pos ?? (pos = before.length);
@@ -29499,9 +29507,9 @@ var require_util_empty_scalar_position = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/compose-node.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/compose-node.js
 var require_compose_node = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/compose-node.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/compose-node.js"(exports$1) {
     var Alias = require_Alias();
     var identity = require_identity();
     var composeCollection = require_compose_collection();
@@ -29531,17 +29539,22 @@ var require_compose_node = __commonJS({
         case "block-map":
         case "block-seq":
         case "flow-collection":
-          node = composeCollection.composeCollection(CN, ctx, token, props, onError);
-          if (anchor)
-            node.anchor = anchor.source.substring(1);
+          try {
+            node = composeCollection.composeCollection(CN, ctx, token, props, onError);
+            if (anchor)
+              node.anchor = anchor.source.substring(1);
+          } catch (error2) {
+            const message = error2 instanceof Error ? error2.message : String(error2);
+            onError(token, "RESOURCE_EXHAUSTION", message);
+          }
           break;
         default: {
           const message = token.type === "error" ? token.message : `Unsupported token (type: ${token.type})`;
           onError(token, "UNEXPECTED_TOKEN", message);
-          node = composeEmptyNode(ctx, token.offset, void 0, null, props, onError);
           isSrcToken = false;
         }
       }
+      node ?? (node = composeEmptyNode(ctx, token.offset, void 0, null, props, onError));
       if (anchor && node.anchor === "")
         onError(anchor, "BAD_ALIAS", "Anchor cannot be an empty string");
       if (atKey && ctx.options.stringKeys && (!identity.isScalar(node) || typeof node.value !== "string" || node.tag && node.tag !== "tag:yaml.org,2002:str")) {
@@ -29602,9 +29615,9 @@ var require_compose_node = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/compose-doc.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/compose-doc.js
 var require_compose_doc = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/compose-doc.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/compose-doc.js"(exports$1) {
     var Document = require_Document();
     var composeNode = require_compose_node();
     var resolveEnd = require_resolve_end();
@@ -29645,9 +29658,9 @@ var require_compose_doc = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/composer.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/composer.js
 var require_composer = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/compose/composer.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/compose/composer.js"(exports$1) {
     var node_process = __require("process");
     var directives = require_directives();
     var Document = require_Document();
@@ -29855,9 +29868,9 @@ ${end.comment}` : end.comment;
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/cst-scalar.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/cst-scalar.js
 var require_cst_scalar = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/cst-scalar.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/cst-scalar.js"(exports$1) {
     var resolveBlockScalar = require_resolve_block_scalar();
     var resolveFlowScalar = require_resolve_flow_scalar();
     var errors = require_errors2();
@@ -30045,9 +30058,9 @@ var require_cst_scalar = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/cst-stringify.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/cst-stringify.js
 var require_cst_stringify = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/cst-stringify.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/cst-stringify.js"(exports$1) {
     var stringify = /* @__PURE__ */ __name((cst) => "type" in cst ? stringifyToken(cst) : stringifyItem(cst), "stringify");
     function stringifyToken(token) {
       switch (token.type) {
@@ -30107,9 +30120,9 @@ var require_cst_stringify = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/cst-visit.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/cst-visit.js
 var require_cst_visit = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/cst-visit.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/cst-visit.js"(exports$1) {
     var BREAK = /* @__PURE__ */ Symbol("break visit");
     var SKIP = /* @__PURE__ */ Symbol("skip children");
     var REMOVE = /* @__PURE__ */ Symbol("remove item");
@@ -30170,9 +30183,9 @@ var require_cst_visit = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/cst.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/cst.js
 var require_cst = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/cst.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/cst.js"(exports$1) {
     var cstScalar = require_cst_scalar();
     var cstStringify = require_cst_stringify();
     var cstVisit = require_cst_visit();
@@ -30273,9 +30286,9 @@ var require_cst = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/lexer.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/lexer.js
 var require_lexer = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/lexer.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/lexer.js"(exports$1) {
     var cst = require_cst();
     function isEmpty(ch) {
       switch (ch) {
@@ -30855,9 +30868,9 @@ var require_lexer = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/line-counter.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/line-counter.js
 var require_line_counter = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/line-counter.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/line-counter.js"(exports$1) {
     var LineCounter = class {
       static {
         __name(this, "LineCounter");
@@ -30888,9 +30901,9 @@ var require_line_counter = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/parser.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/parser.js
 var require_parser = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/parse/parser.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/parse/parser.js"(exports$1) {
     var node_process = __require("process");
     var cst = require_cst();
     var lexer = require_lexer();
@@ -31763,9 +31776,9 @@ var require_parser = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/public-api.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/public-api.js
 var require_public_api = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/public-api.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/public-api.js"(exports$1) {
     var composer = require_composer();
     var Document = require_Document();
     var errors = require_errors2();
@@ -31864,9 +31877,9 @@ var require_public_api = __commonJS({
   }
 });
 
-// node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/index.js
+// node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/index.js
 var require_dist = __commonJS({
-  "node_modules/.pnpm/yaml@2.8.2/node_modules/yaml/dist/index.js"(exports$1) {
+  "node_modules/.pnpm/yaml@2.8.3/node_modules/yaml/dist/index.js"(exports$1) {
     var composer = require_composer();
     var Document = require_Document();
     var Schema = require_Schema();
@@ -33305,12 +33318,13 @@ var require_braces = __commonJS({
   }
 });
 
-// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/constants.js
+// node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/lib/constants.js
 var require_constants7 = __commonJS({
-  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/constants.js"(exports$1, module) {
+  "node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/lib/constants.js"(exports$1, module) {
     var path4 = __require("path");
     var WIN_SLASH = "\\\\/";
     var WIN_NO_SLASH = `[^${WIN_SLASH}]`;
+    var DEFAULT_MAX_EXTGLOB_RECURSION = 0;
     var DOT_LITERAL = "\\.";
     var PLUS_LITERAL = "\\+";
     var QMARK_LITERAL = "\\?";
@@ -33358,6 +33372,7 @@ var require_constants7 = __commonJS({
       END_ANCHOR: `(?:[${WIN_SLASH}]|$)`
     };
     var POSIX_REGEX_SOURCE = {
+      __proto__: null,
       alnum: "a-zA-Z0-9",
       alpha: "a-zA-Z",
       ascii: "\\x00-\\x7F",
@@ -33374,6 +33389,7 @@ var require_constants7 = __commonJS({
       xdigit: "A-Fa-f0-9"
     };
     module.exports = {
+      DEFAULT_MAX_EXTGLOB_RECURSION,
       MAX_LENGTH: 1024 * 64,
       POSIX_REGEX_SOURCE,
       // regular expressions
@@ -33385,6 +33401,7 @@ var require_constants7 = __commonJS({
       REGEX_REMOVE_BACKSLASH: /(?:\[.*?[^\\]\]|\\(?=.))/g,
       // Replace globs with equivalent patterns to reduce parsing time.
       REPLACEMENTS: {
+        __proto__: null,
         "***": "*",
         "**/**": "**",
         "**/**/**": "**"
@@ -33501,9 +33518,9 @@ var require_constants7 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/utils.js
+// node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/lib/utils.js
 var require_utils6 = __commonJS({
-  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/utils.js"(exports$1) {
+  "node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/lib/utils.js"(exports$1) {
     var path4 = __require("path");
     var win32 = process.platform === "win32";
     var {
@@ -33561,9 +33578,9 @@ var require_utils6 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/scan.js
+// node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/lib/scan.js
 var require_scan = __commonJS({
-  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/scan.js"(exports$1, module) {
+  "node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/lib/scan.js"(exports$1, module) {
     var utils = require_utils6();
     var {
       CHAR_ASTERISK,
@@ -33890,9 +33907,9 @@ var require_scan = __commonJS({
   }
 });
 
-// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/parse.js
+// node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/lib/parse.js
 var require_parse3 = __commonJS({
-  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/parse.js"(exports$1, module) {
+  "node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/lib/parse.js"(exports$1, module) {
     var constants2 = require_constants7();
     var utils = require_utils6();
     var {
@@ -33918,6 +33935,213 @@ var require_parse3 = __commonJS({
     var syntaxError = /* @__PURE__ */ __name((type, char) => {
       return `Missing ${type}: "${char}" - use "\\\\${char}" to match literal characters`;
     }, "syntaxError");
+    var splitTopLevel = /* @__PURE__ */ __name((input) => {
+      const parts = [];
+      let bracket = 0;
+      let paren = 0;
+      let quote = 0;
+      let value = "";
+      let escaped = false;
+      for (const ch of input) {
+        if (escaped === true) {
+          value += ch;
+          escaped = false;
+          continue;
+        }
+        if (ch === "\\") {
+          value += ch;
+          escaped = true;
+          continue;
+        }
+        if (ch === '"') {
+          quote = quote === 1 ? 0 : 1;
+          value += ch;
+          continue;
+        }
+        if (quote === 0) {
+          if (ch === "[") {
+            bracket++;
+          } else if (ch === "]" && bracket > 0) {
+            bracket--;
+          } else if (bracket === 0) {
+            if (ch === "(") {
+              paren++;
+            } else if (ch === ")" && paren > 0) {
+              paren--;
+            } else if (ch === "|" && paren === 0) {
+              parts.push(value);
+              value = "";
+              continue;
+            }
+          }
+        }
+        value += ch;
+      }
+      parts.push(value);
+      return parts;
+    }, "splitTopLevel");
+    var isPlainBranch = /* @__PURE__ */ __name((branch) => {
+      let escaped = false;
+      for (const ch of branch) {
+        if (escaped === true) {
+          escaped = false;
+          continue;
+        }
+        if (ch === "\\") {
+          escaped = true;
+          continue;
+        }
+        if (/[?*+@!()[\]{}]/.test(ch)) {
+          return false;
+        }
+      }
+      return true;
+    }, "isPlainBranch");
+    var normalizeSimpleBranch = /* @__PURE__ */ __name((branch) => {
+      let value = branch.trim();
+      let changed = true;
+      while (changed === true) {
+        changed = false;
+        if (/^@\([^\\()[\]{}|]+\)$/.test(value)) {
+          value = value.slice(2, -1);
+          changed = true;
+        }
+      }
+      if (!isPlainBranch(value)) {
+        return;
+      }
+      return value.replace(/\\(.)/g, "$1");
+    }, "normalizeSimpleBranch");
+    var hasRepeatedCharPrefixOverlap = /* @__PURE__ */ __name((branches) => {
+      const values = branches.map(normalizeSimpleBranch).filter(Boolean);
+      for (let i = 0; i < values.length; i++) {
+        for (let j = i + 1; j < values.length; j++) {
+          const a = values[i];
+          const b = values[j];
+          const char = a[0];
+          if (!char || a !== char.repeat(a.length) || b !== char.repeat(b.length)) {
+            continue;
+          }
+          if (a === b || a.startsWith(b) || b.startsWith(a)) {
+            return true;
+          }
+        }
+      }
+      return false;
+    }, "hasRepeatedCharPrefixOverlap");
+    var parseRepeatedExtglob = /* @__PURE__ */ __name((pattern, requireEnd = true) => {
+      if (pattern[0] !== "+" && pattern[0] !== "*" || pattern[1] !== "(") {
+        return;
+      }
+      let bracket = 0;
+      let paren = 0;
+      let quote = 0;
+      let escaped = false;
+      for (let i = 1; i < pattern.length; i++) {
+        const ch = pattern[i];
+        if (escaped === true) {
+          escaped = false;
+          continue;
+        }
+        if (ch === "\\") {
+          escaped = true;
+          continue;
+        }
+        if (ch === '"') {
+          quote = quote === 1 ? 0 : 1;
+          continue;
+        }
+        if (quote === 1) {
+          continue;
+        }
+        if (ch === "[") {
+          bracket++;
+          continue;
+        }
+        if (ch === "]" && bracket > 0) {
+          bracket--;
+          continue;
+        }
+        if (bracket > 0) {
+          continue;
+        }
+        if (ch === "(") {
+          paren++;
+          continue;
+        }
+        if (ch === ")") {
+          paren--;
+          if (paren === 0) {
+            if (requireEnd === true && i !== pattern.length - 1) {
+              return;
+            }
+            return {
+              type: pattern[0],
+              body: pattern.slice(2, i),
+              end: i
+            };
+          }
+        }
+      }
+    }, "parseRepeatedExtglob");
+    var getStarExtglobSequenceOutput = /* @__PURE__ */ __name((pattern) => {
+      let index = 0;
+      const chars = [];
+      while (index < pattern.length) {
+        const match = parseRepeatedExtglob(pattern.slice(index), false);
+        if (!match || match.type !== "*") {
+          return;
+        }
+        const branches = splitTopLevel(match.body).map((branch2) => branch2.trim());
+        if (branches.length !== 1) {
+          return;
+        }
+        const branch = normalizeSimpleBranch(branches[0]);
+        if (!branch || branch.length !== 1) {
+          return;
+        }
+        chars.push(branch);
+        index += match.end + 1;
+      }
+      if (chars.length < 1) {
+        return;
+      }
+      const source = chars.length === 1 ? utils.escapeRegex(chars[0]) : `[${chars.map((ch) => utils.escapeRegex(ch)).join("")}]`;
+      return `${source}*`;
+    }, "getStarExtglobSequenceOutput");
+    var repeatedExtglobRecursion = /* @__PURE__ */ __name((pattern) => {
+      let depth = 0;
+      let value = pattern.trim();
+      let match = parseRepeatedExtglob(value);
+      while (match) {
+        depth++;
+        value = match.body.trim();
+        match = parseRepeatedExtglob(value);
+      }
+      return depth;
+    }, "repeatedExtglobRecursion");
+    var analyzeRepeatedExtglob = /* @__PURE__ */ __name((body, options) => {
+      if (options.maxExtglobRecursion === false) {
+        return { risky: false };
+      }
+      const max = typeof options.maxExtglobRecursion === "number" ? options.maxExtglobRecursion : constants2.DEFAULT_MAX_EXTGLOB_RECURSION;
+      const branches = splitTopLevel(body).map((branch) => branch.trim());
+      if (branches.length > 1) {
+        if (branches.some((branch) => branch === "") || branches.some((branch) => /^[*?]+$/.test(branch)) || hasRepeatedCharPrefixOverlap(branches)) {
+          return { risky: true };
+        }
+      }
+      for (const branch of branches) {
+        const safeOutput = getStarExtglobSequenceOutput(branch);
+        if (safeOutput) {
+          return { risky: true, safeOutput };
+        }
+        if (repeatedExtglobRecursion(branch) > max) {
+          return { risky: true };
+        }
+      }
+      return { risky: false };
+    }, "analyzeRepeatedExtglob");
     var parse2 = /* @__PURE__ */ __name((input, options) => {
       if (typeof input !== "string") {
         throw new TypeError("Expected a string");
@@ -34049,6 +34273,8 @@ var require_parse3 = __commonJS({
         token.prev = prev;
         token.parens = state.parens;
         token.output = state.output;
+        token.startIndex = state.index;
+        token.tokensIndex = tokens.length;
         const output = (opts.capture ? "(" : "") + token.open;
         increment("parens");
         push({ type, value: value2, output: state.output ? "" : ONE_CHAR });
@@ -34056,6 +34282,26 @@ var require_parse3 = __commonJS({
         extglobs.push(token);
       }, "extglobOpen");
       const extglobClose = /* @__PURE__ */ __name((token) => {
+        const literal = input.slice(token.startIndex, state.index + 1);
+        const body = input.slice(token.startIndex + 2, state.index);
+        const analysis = analyzeRepeatedExtglob(body, opts);
+        if ((token.type === "plus" || token.type === "star") && analysis.risky) {
+          const safeOutput = analysis.safeOutput ? (token.output ? "" : ONE_CHAR) + (opts.capture ? `(${analysis.safeOutput})` : analysis.safeOutput) : void 0;
+          const open2 = tokens[token.tokensIndex];
+          open2.type = "text";
+          open2.value = literal;
+          open2.output = safeOutput || utils.escapeRegex(literal);
+          for (let i = token.tokensIndex + 1; i < tokens.length; i++) {
+            tokens[i].value = "";
+            tokens[i].output = "";
+            delete tokens[i].suffix;
+          }
+          state.output = token.output + open2.output;
+          state.backtrack = true;
+          push({ type: "paren", extglob: true, value, output: "" });
+          decrement("parens");
+          return;
+        }
         let output = token.close + (opts.capture ? ")" : "");
         let rest;
         if (token.type === "negate") {
@@ -34662,9 +34908,9 @@ var require_parse3 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/picomatch.js
+// node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/lib/picomatch.js
 var require_picomatch = __commonJS({
-  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/picomatch.js"(exports$1, module) {
+  "node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/lib/picomatch.js"(exports$1, module) {
     var path4 = __require("path");
     var scan = require_scan();
     var parse2 = require_parse3();
@@ -34802,9 +35048,9 @@ var require_picomatch = __commonJS({
   }
 });
 
-// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/index.js
+// node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/index.js
 var require_picomatch2 = __commonJS({
-  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/index.js"(exports$1, module) {
+  "node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/index.js"(exports$1, module) {
     module.exports = require_picomatch();
   }
 });
@@ -44955,9 +45201,9 @@ var require_balanced_match = __commonJS({
   }
 });
 
-// node_modules/.pnpm/brace-expansion@2.0.2/node_modules/brace-expansion/index.js
+// node_modules/.pnpm/brace-expansion@2.0.3/node_modules/brace-expansion/index.js
 var require_brace_expansion = __commonJS({
-  "node_modules/.pnpm/brace-expansion@2.0.2/node_modules/brace-expansion/index.js"(exports$1, module) {
+  "node_modules/.pnpm/brace-expansion@2.0.3/node_modules/brace-expansion/index.js"(exports$1, module) {
     var balanced = require_balanced_match();
     module.exports = expandTop;
     var escSlash = "\0SLASH" + Math.random() + "\0";
@@ -45065,7 +45311,7 @@ var require_brace_expansion = __commonJS({
           var x = numeric(n[0]);
           var y = numeric(n[1]);
           var width = Math.max(n[0].length, n[1].length);
-          var incr = n.length == 3 ? Math.abs(numeric(n[2])) : 1;
+          var incr = n.length == 3 ? Math.max(Math.abs(numeric(n[2])), 1) : 1;
           var test = lte;
           var reverse = y < x;
           if (reverse) {
@@ -79025,15 +79271,15 @@ var core6 = __toESM(require_core());
 var core2 = __toESM(require_core());
 var github = __toESM(require_github());
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/loader.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/loader.js
 var import_yaml = __toESM(require_dist(), 1);
 var import_fast_glob = __toESM(require_out4(), 1);
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/validator.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/validator.js
 var import_ajv = __toESM(require_ajv(), 1);
 var import_ajv_formats = __toESM(require_dist2(), 1);
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/schema.json
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/schema.json
 var schema_default = {
   $schema: "http://json-schema.org/draft-07/schema#",
   $id: "https://contractual.dev/schemas/config.json",
@@ -79161,7 +79407,7 @@ var schema_default = {
   additionalProperties: false
 };
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/validator.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/validator.js
 var AjvConstructor = import_ajv.default.default ?? import_ajv.default;
 var addFormatsFunc = import_ajv_formats.default.default ?? import_ajv_formats.default;
 function validateConfig(config) {
@@ -79184,7 +79430,7 @@ function formatValidationErrors(errors) {
 }
 __name(formatValidationErrors, "formatValidationErrors");
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/config/loader.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/loader.js
 var CONFIG_FILENAMES = ["contractual.yaml", "contractual.yml"];
 var ConfigError = class extends Error {
   static {
@@ -82115,7 +82361,7 @@ function registerAllEngines() {
 __name(registerAllEngines, "registerAllEngines");
 registerAllEngines();
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/utils/files.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/utils/files.js
 __toESM(require_dist(), 1);
 
 // node_modules/.pnpm/@contractual+changesets@0.1.0-dev.5/node_modules/@contractual/changesets/dist/changesets/naming.js
@@ -82703,7 +82949,7 @@ function updateSpecVersion(specPath, newVersion, contractType) {
 }
 __name(updateSpecVersion, "updateSpecVersion");
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/utils/files.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/utils/files.js
 var CONTRACTUAL_DIR = ".contractual";
 function findContractualDir(startDir = process.cwd()) {
   let currentDir = path.resolve(startDir);
@@ -82738,7 +82984,7 @@ function getSnapshotPath(contractName, contractualDir) {
 }
 __name(getSnapshotPath, "getSnapshotPath");
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.33/node_modules/@contractual/cli/dist/core/diff.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/core/diff.js
 async function diffContracts(config, options = {}) {
   const contractualDir = findContractualDir(config.configDir);
   if (!contractualDir) {
