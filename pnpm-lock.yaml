@@ -25,11 +25,11 @@ importers:
         version: 1.34.11
     devDependencies:
       '@contractual/cli':
-        specifier: 0.1.0-dev.5
-        version: 0.1.0-dev.5(@types/node@20.19.39)
+        specifier: 0.1.0-dev.7
+        version: 0.1.0-dev.7(@types/node@20.19.39)
       '@contractual/governance':
-        specifier: 0.1.0-dev.5
-        version: 0.1.0-dev.5
+        specifier: 0.1.0-dev.7
+        version: 0.1.0-dev.7
       '@types/node':
         specifier: ^20.11.0
         version: 20.19.39
@@ -76,25 +76,25 @@ packages:
     resolution: {integrity: sha512-OpC7l/eQEBb+fyl9UGJEshm0pwDI69H/9Vf1vsKJ81TYzURys5YI8Sm/HO6ReFmWSkeGwIOdMMJvjOISAwZ+AQ==}
     engines: {node: '>=20.0.0'}
 
-  '@contractual/cli@0.1.0-dev.5':
-    resolution: {integrity: sha512-Ne2GWrv4nnYk99ZaSZ3kq9VH/C3edNLq5sBMy4+61EpZgkqTxB63OkvzZarHFA5G+7uwOuBHTvPZ8w2d+dUTQQ==}
+  '@contractual/cli@0.1.0-dev.7':
+    resolution: {integrity: sha512-L3wQOSIW9ciqw+epRm6TnM5bS3U/WnLAvFQY59sn2hBbG8JArZWBLvJgZM1mxZLXNKcAqC1wbhVlWSLqc5yupQ==}
     engines: {node: '>=20.0.0'}
     hasBin: true
 
-  '@contractual/differs.core@0.1.0-dev.5':
-    resolution: {integrity: sha512-BbZ4FanPJlXmjK3WvhMCFoi8VOD+XS9jByzLmhnyKjT1jyMhJFvN6FJUo+K5nJtTVhEteov89kmooeBL1cmEjw==}
+  '@contractual/differs.core@0.1.0-dev.7':
+    resolution: {integrity: sha512-0t6M4MjyIy+dfcQ7TfaCc0XlXx6kSDMZnYWms5//0+w6Jen+Sl95slQ1qL0fIOf8K2UvaaJweESj16i/I/trXw==}
     engines: {node: '>=20.0.0'}
 
-  '@contractual/differs.json-schema@0.1.0-dev.5':
-    resolution: {integrity: sha512-zrTcmo6Mo+RKVcxyG2nXxlhU2ma8FLNL9h3GG27kBPCfBII3yxvSjGC88Uxy1uaZjiE/PbO5wIt+1iIeE6h3IA==}
+  '@contractual/differs.json-schema@0.1.0-dev.7':
+    resolution: {integrity: sha512-4opKHtReUtcUFJy0g4rQtSsf9icRBCksbqmA3FMVHSj4in0h2AsWX3bNKx33FaNI6Qw+WFTDnbfLXfnyyY+ZVg==}
     engines: {node: '>=20.0.0'}
 
-  '@contractual/differs.openapi@0.1.0-dev.5':
-    resolution: {integrity: sha512-vHXg5sdUtIfCyxzaXJaa3WWlnvxuurrpD5R+veEe1ubEFwzE1Bu/ZRFb0kB/ex4ZzYUf6ZbmCMVbPdayJxFLXQ==}
+  '@contractual/differs.openapi@0.1.0-dev.7':
+    resolution: {integrity: sha512-hVqFO7P8k1AabC/58r19syuryEZlCUQNTpI9rHcush5ew2reLr9W6bpFMwHV+kAmf/53aoNuV4UASzeRXhYypA==}
     engines: {node: '>=20.0.0'}
 
-  '@contractual/governance@0.1.0-dev.5':
-    resolution: {integrity: sha512-VSYr3TX+d9FnntaNnHLvB37I9LZCRsLJ975fuWzqgoi0d8tUJGLoYI48BZdd5TrPt6Ex2vN7+5hCyxh8j4w3Vw==}
+  '@contractual/governance@0.1.0-dev.7':
+    resolution: {integrity: sha512-18DjL32XwWMgR1qcleqDqN8r98YWW35GSpp9gWL3ahCwZAx1nqjglioVzR2Mjm9veyiqzHZ0wWal4K5Wle3+mw==}
     engines: {node: '>=20.0.0'}
 
   '@contractual/types@0.1.0-dev.5':
@@ -1319,8 +1319,8 @@ packages:
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
 
-  vite@7.3.1:
-    resolution: {integrity: sha512-w+N7Hifpc3gRjZ63vYBXA56dvvRlNWRczTdmCBBa+CotUzAPf5b7YMdMR/8CQoeYE5LX3W4wj6RYTgonm1b9DA==}
+  vite@7.3.2:
+    resolution: {integrity: sha512-Bby3NOsna2jsjfLVOHKes8sGwgl4TT0E6vvpYgnAYDIF/tie7MRaFthmKuHx1NSXjiTueXH3do80FMQgvEktRg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -1456,10 +1456,10 @@ snapshots:
       semver: 7.7.4
       yaml: 2.8.3
 
-  '@contractual/cli@0.1.0-dev.5(@types/node@20.19.39)':
+  '@contractual/cli@0.1.0-dev.7(@types/node@20.19.39)':
     dependencies:
       '@contractual/changesets': 0.1.0-dev.5
-      '@contractual/governance': 0.1.0-dev.5
+      '@contractual/governance': 0.1.0-dev.7
       '@contractual/types': 0.1.0-dev.5
       '@inquirer/prompts': 8.3.2(@types/node@20.19.39)
       ajv: 8.18.0
@@ -1473,27 +1473,27 @@ snapshots:
       - '@types/node'
       - supports-color
 
-  '@contractual/differs.core@0.1.0-dev.5':
+  '@contractual/differs.core@0.1.0-dev.7':
     dependencies:
       '@contractual/types': 0.1.0-dev.5
 
-  '@contractual/differs.json-schema@0.1.0-dev.5':
+  '@contractual/differs.json-schema@0.1.0-dev.7':
     dependencies:
-      '@contractual/differs.core': 0.1.0-dev.5
+      '@contractual/differs.core': 0.1.0-dev.7
       '@contractual/types': 0.1.0-dev.5
 
-  '@contractual/differs.openapi@0.1.0-dev.5':
+  '@contractual/differs.openapi@0.1.0-dev.7':
     dependencies:
-      '@contractual/differs.core': 0.1.0-dev.5
+      '@contractual/differs.core': 0.1.0-dev.7
       '@contractual/types': 0.1.0-dev.5
       '@redocly/openapi-core': 1.34.11
     transitivePeerDependencies:
       - supports-color
 
-  '@contractual/governance@0.1.0-dev.5':
+  '@contractual/governance@0.1.0-dev.7':
     dependencies:
-      '@contractual/differs.json-schema': 0.1.0-dev.5
-      '@contractual/differs.openapi': 0.1.0-dev.5
+      '@contractual/differs.json-schema': 0.1.0-dev.7
+      '@contractual/differs.openapi': 0.1.0-dev.7
       '@contractual/types': 0.1.0-dev.5
       ajv: 8.18.0
       ajv-formats: 3.0.1(ajv@8.18.0)
@@ -1939,13 +1939,13 @@ snapshots:
       chai: 5.3.3
       tinyrainbow: 2.0.0
 
-  '@vitest/mocker@3.2.4(vite@7.3.1(@types/node@20.19.39)(yaml@2.8.3))':
+  '@vitest/mocker@3.2.4(vite@7.3.2(@types/node@20.19.39)(yaml@2.8.3))':
     dependencies:
       '@vitest/spy': 3.2.4
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 7.3.1(@types/node@20.19.39)(yaml@2.8.3)
+      vite: 7.3.2(@types/node@20.19.39)(yaml@2.8.3)
 
   '@vitest/pretty-format@3.2.4':
     dependencies:
@@ -2554,7 +2554,7 @@ snapshots:
       debug: 4.4.3
       es-module-lexer: 1.7.0
       pathe: 2.0.3
-      vite: 7.3.1(@types/node@20.19.39)(yaml@2.8.3)
+      vite: 7.3.2(@types/node@20.19.39)(yaml@2.8.3)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -2569,7 +2569,7 @@ snapshots:
       - tsx
       - yaml
 
-  vite@7.3.1(@types/node@20.19.39)(yaml@2.8.3):
+  vite@7.3.2(@types/node@20.19.39)(yaml@2.8.3):
     dependencies:
       esbuild: 0.27.7
       fdir: 6.5.0(picomatch@4.0.4)
@@ -2586,7 +2586,7 @@ snapshots:
     dependencies:
       '@types/chai': 5.2.3
       '@vitest/expect': 3.2.4
-      '@vitest/mocker': 3.2.4(vite@7.3.1(@types/node@20.19.39)(yaml@2.8.3))
+      '@vitest/mocker': 3.2.4(vite@7.3.2(@types/node@20.19.39)(yaml@2.8.3))
       '@vitest/pretty-format': 3.2.4
       '@vitest/runner': 3.2.4
       '@vitest/snapshot': 3.2.4
@@ -2604,7 +2604,7 @@ snapshots:
       tinyglobby: 0.2.15
       tinypool: 1.1.1
       tinyrainbow: 2.0.0
-      vite: 7.3.1(@types/node@20.19.39)(yaml@2.8.3)
+      vite: 7.3.2(@types/node@20.19.39)(yaml@2.8.3)
       vite-node: 3.2.4(@types/node@20.19.39)(yaml@2.8.3)
       why-is-node-running: 2.3.0
     optionalDependencies:

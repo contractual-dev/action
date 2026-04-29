@@ -44880,7 +44880,7 @@ var require_dist2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/runner.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.7/node_modules/@contractual/governance/dist/runner.js
 var runner_exports = {};
 __export(runner_exports, {
   executeCustomCommand: () => executeCustomCommand,
@@ -45118,7 +45118,7 @@ function parseLineDiffOutput(output) {
   return { contract: "", changes, summary, suggestedBump };
 }
 var init_runner = __esm({
-  "node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/runner.js"() {
+  "node_modules/.pnpm/@contractual+governance@0.1.0-dev.7/node_modules/@contractual/governance/dist/runner.js"() {
     __name(isExecError, "isExecError");
     __name(executeCustomCommand, "executeCustomCommand");
     __name(parseCustomLintOutput, "parseCustomLintOutput");
@@ -79271,15 +79271,15 @@ var core6 = __toESM(require_core());
 var core2 = __toESM(require_core());
 var github = __toESM(require_github());
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/loader.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.7_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/loader.js
 var import_yaml = __toESM(require_dist(), 1);
 var import_fast_glob = __toESM(require_out4(), 1);
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/validator.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.7_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/validator.js
 var import_ajv = __toESM(require_ajv(), 1);
 var import_ajv_formats = __toESM(require_dist2(), 1);
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/schema.json
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.7_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/schema.json
 var schema_default = {
   $schema: "http://json-schema.org/draft-07/schema#",
   $id: "https://contractual.dev/schemas/config.json",
@@ -79407,7 +79407,7 @@ var schema_default = {
   additionalProperties: false
 };
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/validator.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.7_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/validator.js
 var AjvConstructor = import_ajv.default.default ?? import_ajv.default;
 var addFormatsFunc = import_ajv_formats.default.default ?? import_ajv_formats.default;
 function validateConfig(config) {
@@ -79430,7 +79430,7 @@ function formatValidationErrors(errors) {
 }
 __name(formatValidationErrors, "formatValidationErrors");
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/loader.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.7_@types+node@20.19.39/node_modules/@contractual/cli/dist/config/loader.js
 var CONFIG_FILENAMES = ["contractual.yaml", "contractual.yml"];
 var ConfigError = class extends Error {
   static {
@@ -79531,7 +79531,7 @@ function loadConfig(startDir) {
 }
 __name(loadConfig, "loadConfig");
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/registry.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.7/node_modules/@contractual/governance/dist/registry.js
 var linters = /* @__PURE__ */ new Map();
 var differs = /* @__PURE__ */ new Map();
 function registerLinter(type, linter) {
@@ -79638,7 +79638,7 @@ function createCustomDiffer(commandTemplate) {
 }
 __name(createCustomDiffer, "createCustomDiffer");
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/linters/openapi-redocly.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.7/node_modules/@contractual/governance/dist/linters/openapi-redocly.js
 async function lintOpenAPI(specPath) {
   let lint;
   let loadConfig2;
@@ -79689,11 +79689,11 @@ async function lintOpenAPI(specPath) {
 }
 __name(lintOpenAPI, "lintOpenAPI");
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/linters/json-schema-ajv.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.7/node_modules/@contractual/governance/dist/linters/json-schema-ajv.js
 var import_ajv2 = __toESM(require_ajv(), 1);
 var import_ajv_formats2 = __toESM(require_dist2(), 1);
 
-// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.5/node_modules/@contractual/differs.core/dist/types.js
+// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.7/node_modules/@contractual/differs.core/dist/types.js
 var CONSTRAINT_DIRECTION = {
   minimum: "min",
   maximum: "max",
@@ -79792,7 +79792,7 @@ function joinPath(basePath, ...segments) {
 }
 __name(joinPath, "joinPath");
 
-// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.5/node_modules/@contractual/differs.core/dist/walker.js
+// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.7/node_modules/@contractual/differs.core/dist/walker.js
 function walk(oldSchema, newSchema, basePath = "") {
   return walkInternal(oldSchema, newSchema, basePath, 0);
 }
@@ -80783,7 +80783,7 @@ function matchCompositionOptions(oldOptions, newOptions) {
 }
 __name(matchCompositionOptions, "matchCompositionOptions");
 
-// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.5/node_modules/@contractual/differs.core/dist/classifiers.js
+// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.7/node_modules/@contractual/differs.core/dist/classifiers.js
 var BREAKING_CHANGES = /* @__PURE__ */ new Set([
   "property-removed",
   "required-added",
@@ -80958,7 +80958,7 @@ function isObject(value) {
 }
 __name(isObject, "isObject");
 
-// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.5/node_modules/@contractual/differs.core/dist/ref-resolver.js
+// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.7/node_modules/@contractual/differs.core/dist/ref-resolver.js
 function resolveRefs(schema) {
   const context3 = {
     root: schema,
@@ -81115,7 +81115,7 @@ function isObject2(value) {
 }
 __name(isObject2, "isObject");
 
-// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.5/node_modules/@contractual/differs.core/dist/format.js
+// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.7/node_modules/@contractual/differs.core/dist/format.js
 function formatChangeMessage(change) {
   const pathDisplay = decodeJsonPointer(change.path || "/");
   switch (change.type) {
@@ -81214,6 +81214,23 @@ function formatChangeMessage(change) {
       return `Security changed at ${pathDisplay}`;
     case "server-changed":
       return `Server changed at ${pathDisplay}`;
+    // Composition changes
+    case "anyof-option-added":
+      return `anyOf option added at ${pathDisplay}`;
+    case "anyof-option-removed":
+      return `anyOf option removed at ${pathDisplay}`;
+    case "oneof-option-added":
+      return `oneOf option added at ${pathDisplay}`;
+    case "oneof-option-removed":
+      return `oneOf option removed at ${pathDisplay}`;
+    case "allof-member-added":
+      return `allOf member added at ${pathDisplay}`;
+    case "allof-member-removed":
+      return `allOf member removed at ${pathDisplay}`;
+    case "not-schema-changed":
+      return `not schema changed at ${pathDisplay}`;
+    case "if-then-else-changed":
+      return `Conditional schema (if/then/else) changed at ${pathDisplay}`;
     case "unknown-change":
     default:
       return `Unknown change at ${pathDisplay}`;
@@ -81221,7 +81238,18 @@ function formatChangeMessage(change) {
 }
 __name(formatChangeMessage, "formatChangeMessage");
 function decodeJsonPointer(path4) {
-  return path4.replace(/~1/g, "/").replace(/~0/g, "~");
+  if (!path4.startsWith("/"))
+    return path4;
+  const segments = path4.split("/");
+  const decoded = segments.map((seg, i) => {
+    if (i === 0)
+      return seg;
+    const value = seg.replace(/~1/g, "/").replace(/~0/g, "~");
+    if (value.includes("/"))
+      return `[${value}]`;
+    return value;
+  });
+  return decoded.join("/");
 }
 __name(decodeJsonPointer, "decodeJsonPointer");
 function formatValue(value) {
@@ -81270,7 +81298,7 @@ function extractConstraintName(path4) {
 }
 __name(extractConstraintName, "extractConstraintName");
 
-// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.5/node_modules/@contractual/differs.core/dist/assemble.js
+// node_modules/.pnpm/@contractual+differs.core@0.1.0-dev.7/node_modules/@contractual/differs.core/dist/assemble.js
 function assembleResult(rawChanges, resolvedNewSchema, options) {
   const classifyChange = options?.classifyFn ?? defaultClassify;
   const changes = rawChanges.map((raw) => ({
@@ -81339,7 +81367,7 @@ function diffJsonSchemaObjects(oldSchema, newSchema) {
 }
 __name(diffJsonSchemaObjects, "diffJsonSchemaObjects");
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/linters/json-schema-rules.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.7/node_modules/@contractual/governance/dist/linters/json-schema-rules.js
 var TYPE_SPECIFIC_KEYWORDS = {
   string: ["minLength", "maxLength", "pattern", "format"],
   number: ["minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", "multipleOf"],
@@ -82027,7 +82055,7 @@ function walkSchema(schema, path4, root, visitor) {
 }
 __name(walkSchema, "walkSchema");
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/linters/json-schema-ajv.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.7/node_modules/@contractual/governance/dist/linters/json-schema-ajv.js
 var AjvConstructor2 = import_ajv2.default.default ?? import_ajv2.default;
 var addFormatsFunc2 = import_ajv_formats2.default.default ?? import_ajv_formats2.default;
 async function lintJsonSchema(specPath, options = {}) {
@@ -82098,7 +82126,7 @@ async function lintJsonSchema(specPath, options = {}) {
 }
 __name(lintJsonSchema, "lintJsonSchema");
 
-// node_modules/.pnpm/@contractual+differs.openapi@0.1.0-dev.5/node_modules/@contractual/differs.openapi/dist/resolver.js
+// node_modules/.pnpm/@contractual+differs.openapi@0.1.0-dev.7/node_modules/@contractual/differs.openapi/dist/resolver.js
 async function resolveOpenApiSpec(specPath) {
   let bundle;
   let loadConfig2;
@@ -82117,7 +82145,7 @@ async function resolveOpenApiSpec(specPath) {
 }
 __name(resolveOpenApiSpec, "resolveOpenApiSpec");
 
-// node_modules/.pnpm/@contractual+differs.openapi@0.1.0-dev.5/node_modules/@contractual/differs.openapi/dist/structural.js
+// node_modules/.pnpm/@contractual+differs.openapi@0.1.0-dev.7/node_modules/@contractual/differs.openapi/dist/structural.js
 var HTTP_METHODS = ["get", "put", "post", "delete", "patch", "options", "head", "trace"];
 function diffStructural(oldSpec, newSpec) {
   const changes = [];
@@ -82337,7 +82365,7 @@ function diffResponses(oldOp, newOp, basePath) {
 }
 __name(diffResponses, "diffResponses");
 
-// node_modules/.pnpm/@contractual+differs.openapi@0.1.0-dev.5/node_modules/@contractual/differs.openapi/dist/differ.js
+// node_modules/.pnpm/@contractual+differs.openapi@0.1.0-dev.7/node_modules/@contractual/differs.openapi/dist/differ.js
 async function diffOpenApi(oldSpecPath, newSpecPath) {
   const oldSpec = await resolveOpenApiSpec(oldSpecPath);
   const newSpec = await resolveOpenApiSpec(newSpecPath);
@@ -82350,7 +82378,7 @@ function diffOpenApiObjects(oldSpec, newSpec) {
 }
 __name(diffOpenApiObjects, "diffOpenApiObjects");
 
-// node_modules/.pnpm/@contractual+governance@0.1.0-dev.5/node_modules/@contractual/governance/dist/index.js
+// node_modules/.pnpm/@contractual+governance@0.1.0-dev.7/node_modules/@contractual/governance/dist/index.js
 init_runner();
 function registerAllEngines() {
   registerLinter("openapi", lintOpenAPI);
@@ -82361,7 +82389,7 @@ function registerAllEngines() {
 __name(registerAllEngines, "registerAllEngines");
 registerAllEngines();
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/utils/files.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.7_@types+node@20.19.39/node_modules/@contractual/cli/dist/utils/files.js
 __toESM(require_dist(), 1);
 
 // node_modules/.pnpm/@contractual+changesets@0.1.0-dev.5/node_modules/@contractual/changesets/dist/changesets/naming.js
@@ -82949,7 +82977,7 @@ function updateSpecVersion(specPath, newVersion, contractType) {
 }
 __name(updateSpecVersion, "updateSpecVersion");
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/utils/files.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.7_@types+node@20.19.39/node_modules/@contractual/cli/dist/utils/files.js
 var CONTRACTUAL_DIR = ".contractual";
 function findContractualDir(startDir = process.cwd()) {
   let currentDir = path.resolve(startDir);
@@ -82984,7 +83012,7 @@ function getSnapshotPath(contractName, contractualDir) {
 }
 __name(getSnapshotPath, "getSnapshotPath");
 
-// node_modules/.pnpm/@contractual+cli@0.1.0-dev.5_@types+node@20.19.39/node_modules/@contractual/cli/dist/core/diff.js
+// node_modules/.pnpm/@contractual+cli@0.1.0-dev.7_@types+node@20.19.39/node_modules/@contractual/cli/dist/core/diff.js
 async function diffContracts(config, options = {}) {
   const contractualDir = findContractualDir(config.configDir);
   if (!contractualDir) {
