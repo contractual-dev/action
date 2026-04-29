@@ -83159,6 +83159,11 @@ async function pushWithRetry(maxAttempts) {
 __name(pushWithRetry, "pushWithRetry");
 
 // src/render/pr-comment.ts
+function decodeJsonPointer2(pointer) {
+  if (!pointer) return "";
+  return pointer.replace(/~1/g, "/").replace(/~0/g, "~");
+}
+__name(decodeJsonPointer2, "decodeJsonPointer");
 function renderPRComment(data) {
   const sections = [];
   sections.push("## Contract Check Results\n");
@@ -83179,9 +83184,6 @@ function renderLintSection(results) {
   const totalErrors = results.reduce((sum, r) => sum + r.errors.length, 0);
   const totalWarnings = results.reduce((sum, r) => sum + r.warnings.length, 0);
   if (totalErrors === 0 && totalWarnings === 0) {
-    if (results.length === 0) {
-      return "### Lint\n\nNo contracts configured.\n";
-    }
     return "### Lint\n\nAll contracts pass validation.\n";
   }
   let md = `### ${totalErrors > 0 ? "Lint" : "Lint"}
@@ -83237,7 +83239,8 @@ function renderDiffSection(results) {
     if (breaking.length > 0) {
       md += "**Breaking Changes:**\n";
       for (const c of breaking) {
-        md += `- ${c.message} \`${c.path}\`
+        const path4 = c.path ? ` (${decodeJsonPointer2(c.path)})` : "";
+        md += `- ${c.message}${path4}
 `;
       }
       md += "\n";
@@ -83245,7 +83248,8 @@ function renderDiffSection(results) {
     if (nonBreaking.length > 0) {
       md += "**Non-breaking Changes:**\n";
       for (const c of nonBreaking) {
-        md += `- ${c.message} \`${c.path}\`
+        const path4 = c.path ? ` (${decodeJsonPointer2(c.path)})` : "";
+        md += `- ${c.message}${path4}
 `;
       }
       md += "\n";
@@ -83253,7 +83257,8 @@ function renderDiffSection(results) {
     if (patch.length > 0) {
       md += "**Patch Changes:**\n";
       for (const c of patch) {
-        md += `- ${c.message}
+        const path4 = c.path ? ` (${decodeJsonPointer2(c.path)})` : "";
+        md += `- ${c.message}${path4}
 `;
       }
       md += "\n";
@@ -83261,7 +83266,8 @@ function renderDiffSection(results) {
     if (unknown.length > 0) {
       md += "**Needs Review:**\n";
       for (const c of unknown) {
-        md += `- ${c.message} \`${c.path}\`
+        const path4 = c.path ? ` (${decodeJsonPointer2(c.path)})` : "";
+        md += `- ${c.message}${path4}
 `;
       }
       md += "\n";
@@ -83273,12 +83279,12 @@ function renderDiffSection(results) {
 __name(renderDiffSection, "renderDiffSection");
 function renderChangesetSection(hasChangeset, created) {
   if (created) {
-    return "### Changeset\n\nA changeset was automatically generated and committed to this PR. Review it and edit if needed.\n";
+    return "### Changeset\n\n\u2705 A changeset was automatically generated and committed to this PR.\n\nReview the changeset file in `.contractual/changesets/` and edit if needed before merging.\n";
   }
   if (hasChangeset) {
-    return "### Changeset\n\nChangeset found in this PR.\n";
+    return "### Changeset\n\n\u2705 Changeset found in this PR.\n\nThe changeset will be consumed when this PR is merged, and a Version PR will be created automatically.\n";
   }
-  return "### Changeset\n\nNo changeset found. If this PR changes contracts, a changeset will be auto-generated on the next push.\n";
+  return "### Changeset\n\n\u26A0\uFE0F No changeset found.\n\nIf this PR changes contracts, a changeset will be auto-generated on the next push.\n";
 }
 __name(renderChangesetSection, "renderChangesetSection");
 function renderAISection(explanation) {

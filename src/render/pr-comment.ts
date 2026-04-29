@@ -2,6 +2,15 @@ import type { LintResult, DiffResult, Change } from '@contractual/cli';
 import type { PRCommentData } from '../types.js';
 
 /**
+ * Decode JSON Pointer to readable path
+ * Converts ~1 to / and ~0 to ~
+ */
+function decodeJsonPointer(pointer: string): string {
+  if (!pointer) return '';
+  return pointer.replace(/~1/g, '/').replace(/~0/g, '~');
+}
+
+/**
  * Render the full PR comment from lint and diff results.
  */
 export function renderPRComment(data: PRCommentData): string {
@@ -38,9 +47,6 @@ function renderLintSection(results: LintResult[]): string {
   const totalWarnings = results.reduce((sum, r) => sum + r.warnings.length, 0);
 
   if (totalErrors === 0 && totalWarnings === 0) {
-    if (results.length === 0) {
-      return '### Lint\n\nNo contracts configured.\n';
-    }
     return '### Lint\n\nAll contracts pass validation.\n';
   }
 
@@ -107,28 +113,32 @@ function renderDiffSection(results: DiffResult[]): string {
     if (breaking.length > 0) {
       md += '**Breaking Changes:**\n';
       for (const c of breaking) {
-        md += `- ${c.message} \`${c.path}\`\n`;
+        const path = c.path ? ` (${decodeJsonPointer(c.path)})` : '';
+        md += `- ${c.message}${path}\n`;
       }
       md += '\n';
     }
     if (nonBreaking.length > 0) {
       md += '**Non-breaking Changes:**\n';
       for (const c of nonBreaking) {
-        md += `- ${c.message} \`${c.path}\`\n`;
+        const path = c.path ? ` (${decodeJsonPointer(c.path)})` : '';
+        md += `- ${c.message}${path}\n`;
       }
       md += '\n';
     }
     if (patch.length > 0) {
       md += '**Patch Changes:**\n';
       for (const c of patch) {
-        md += `- ${c.message}\n`;
+        const path = c.path ? ` (${decodeJsonPointer(c.path)})` : '';
+        md += `- ${c.message}${path}\n`;
       }
       md += '\n';
     }
     if (unknown.length > 0) {
       md += '**Needs Review:**\n';
       for (const c of unknown) {
-        md += `- ${c.message} \`${c.path}\`\n`;
+        const path = c.path ? ` (${decodeJsonPointer(c.path)})` : '';
+        md += `- ${c.message}${path}\n`;
       }
       md += '\n';
     }
@@ -144,12 +154,12 @@ function renderDiffSection(results: DiffResult[]): string {
  */
 function renderChangesetSection(hasChangeset: boolean, created: boolean): string {
   if (created) {
-    return '### Changeset\n\nA changeset was automatically generated and committed to this PR. Review it and edit if needed.\n';
+    return '### Changeset\n\n✅ A changeset was automatically generated and committed to this PR.\n\nReview the changeset file in `.contractual/changesets/` and edit if needed before merging.\n';
   }
   if (hasChangeset) {
-    return '### Changeset\n\nChangeset found in this PR.\n';
+    return '### Changeset\n\n✅ Changeset found in this PR.\n\nThe changeset will be consumed when this PR is merged, and a Version PR will be created automatically.\n';
   }
-  return '### Changeset\n\nNo changeset found. If this PR changes contracts, a changeset will be auto-generated on the next push.\n';
+  return '### Changeset\n\n⚠️ No changeset found.\n\nIf this PR changes contracts, a changeset will be auto-generated on the next push.\n';
 }
 
 /**
